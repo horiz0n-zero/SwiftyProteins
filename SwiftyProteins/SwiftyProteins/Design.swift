@@ -11,12 +11,12 @@ import UIKit
 
 struct Design {
     
-    static let backgroundColor: UIColor = UIColor.init(red: 23/255, green: 23/255, blue: 42/255, alpha: 1)
-    static let borderColor: UIColor = UIColor.purple
+    static let backgroundColor: UIColor = UIColor.black
+    static let borderColor: UIColor = UIColor.init(red: 253/255, green: 160/255, blue: 40/255, alpha: 1)
     
-    static let textLightColor: UIColor = UIColor.yellow
-    static let textColor: UIColor = UIColor.yellow
-    static let textDarkColor: UIColor = UIColor.yellow
+    static let textLightColor: UIColor = UIColor.init(red: 254/255, green: 216/255, blue: 148/255, alpha: 1)
+    static let textColor: UIColor = UIColor.init(red: 204/255, green: 156/255, blue: 88/255, alpha: 1)
+    static let textDarkColor: UIColor = UIColor.init(red: 104/255, green: 66/255, blue: 0, alpha: 1)
     
     static let lightColor: UIColor = UIColor.white
 

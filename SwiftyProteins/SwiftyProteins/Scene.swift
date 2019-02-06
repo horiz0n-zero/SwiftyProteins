@@ -26,7 +26,7 @@ class Scene: SCNScene {
         self.node = SCNNode.init()
         self.light = SCNLight.init()
         
-        self.light.color = Design.testColor
+        self.light.color = Design.lightColor
         self.light.type = .omni
         self.node.camera = camera
         self.node.light = self.light
@@ -38,7 +38,7 @@ class Scene: SCNScene {
             
             circle.position = SCNVector3.init(cos(CGFloat(index) / 10), sin(-(CGFloat(index) / 10)), 0)
             self.rootNode.addChildNode(circle)
-        } 
+        }
         
     }
     required init?(coder aDecoder: NSCoder) {
@@ -49,7 +49,7 @@ class Scene: SCNScene {
         let sphere = SCNSphere.init(radius: radius)
         let node = SCNNode.init(geometry: sphere)
         
-        sphere.firstMaterial?.diffuse.contents = Design.testColor
+        sphere.firstMaterial?.diffuse.contents = Design.lightColor
         return node
     }
     

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  SwiftyProteins
 //
 //  Created by Antoine FEUERSTEIN on 1/26/19.
@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
         self.loginButton.layer.cornerRadius = self.loginButton.frame.height / 2
         self.loginButton.layer.borderColor = Design.borderColor.cgColor
         self.loginButton.layer.borderWidth = 1
+        self.loginButton.setTitleColor(Design.textLightColor, for: .normal)
         
         let scene = Scene()
         

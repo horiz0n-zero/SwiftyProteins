@@ -12,7 +12,6 @@ import UIKit
 class ProteinListViewController: UIViewController, DismissibleViewController {
     
     
-    func dismiss() {
-        
-    }
+    
+    func dismiss() { }
 }
