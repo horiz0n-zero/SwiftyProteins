@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4204D65220AE604007534DF /* ProteinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4204D63220AE604007534DF /* ProteinTableViewCell.swift */; };
+		C4204D66220AE604007534DF /* ProteinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4204D64220AE604007534DF /* ProteinTableViewCell.xib */; };
+		C4204D68220B014C007534DF /* ProteinDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4204D67220B014C007534DF /* ProteinDataManager.swift */; };
 		C454B44821FC628B003249FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454B44721FC628B003249FD /* AppDelegate.swift */; };
 		C454B44A21FC628B003249FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454B44921FC628B003249FD /* LoginViewController.swift */; };
 		C454B44D21FC628B003249FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C454B44B21FC628B003249FD /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C4204D63220AE604007534DF /* ProteinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinTableViewCell.swift; sourceTree = "<group>"; };
+		C4204D64220AE604007534DF /* ProteinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProteinTableViewCell.xib; sourceTree = "<group>"; };
+		C4204D67220B014C007534DF /* ProteinDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinDataManager.swift; sourceTree = "<group>"; };
 		C454B44421FC628B003249FD /* SwiftyProteins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyProteins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C454B44721FC628B003249FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C454B44921FC628B003249FD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +71,9 @@
 				C454B44721FC628B003249FD /* AppDelegate.swift */,
 				C454B44921FC628B003249FD /* LoginViewController.swift */,
 				C4BA2E93220834A200B8664F /* ProteinListViewController.swift */,
+				C4204D67220B014C007534DF /* ProteinDataManager.swift */,
+				C4204D63220AE604007534DF /* ProteinTableViewCell.swift */,
+				C4204D64220AE604007534DF /* ProteinTableViewCell.xib */,
 				C4BA2E95220834D200B8664F /* ProteinViewController.swift */,
 				C454B45921FC6368003249FD /* Scene.swift */,
 				C454B45B21FC63D9003249FD /* Design.swift */,
@@ -136,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C454B45221FC628B003249FD /* LaunchScreen.storyboard in Resources */,
+				C4204D66220AE604007534DF /* ProteinTableViewCell.xib in Resources */,
 				C454B44F21FC628B003249FD /* Assets.xcassets in Resources */,
 				C454B44D21FC628B003249FD /* Main.storyboard in Resources */,
 			);
@@ -149,8 +159,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C454B44A21FC628B003249FD /* LoginViewController.swift in Sources */,
+				C4204D68220B014C007534DF /* ProteinDataManager.swift in Sources */,
 				C454B45C21FC63D9003249FD /* Design.swift in Sources */,
 				C4BA2E96220834D200B8664F /* ProteinViewController.swift in Sources */,
+				C4204D65220AE604007534DF /* ProteinTableViewCell.swift in Sources */,
 				C454B44821FC628B003249FD /* AppDelegate.swift in Sources */,
 				C454B45A21FC6368003249FD /* Scene.swift in Sources */,
 				C4BA2E94220834A200B8664F /* ProteinListViewController.swift in Sources */,

@@ -54,17 +54,53 @@
         <!--Protein List View Controller-->
         <scene sceneID="fgM-ff-12g">
             <objects>
-                <viewController id="ocM-4Z-pDq" customClass="ProteinListViewController" customModule="SwiftyProteins" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProteinListViewController" modalTransitionStyle="crossDissolve" id="ocM-4Z-pDq" customClass="ProteinListViewController" customModule="SwiftyProteins" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uti-vK-u6r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1oW-la-jac">
+                                <rect key="frame" x="16" y="36" width="343" height="615"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ahY-Da-JAF">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rdY-gD-DnM">
+                                        <rect key="frame" x="8" y="64" width="327" height="543"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ahY-Da-JAF" firstAttribute="leading" secondItem="1oW-la-jac" secondAttribute="leading" id="0db-RG-eKl"/>
+                                    <constraint firstItem="ahY-Da-JAF" firstAttribute="top" secondItem="1oW-la-jac" secondAttribute="top" id="ANf-Hr-UPD"/>
+                                    <constraint firstItem="rdY-gD-DnM" firstAttribute="top" secondItem="ahY-Da-JAF" secondAttribute="bottom" constant="8" id="TNs-eI-QNA"/>
+                                    <constraint firstItem="rdY-gD-DnM" firstAttribute="leading" secondItem="1oW-la-jac" secondAttribute="leading" constant="8" id="VF4-tn-kZ8"/>
+                                    <constraint firstAttribute="trailing" secondItem="ahY-Da-JAF" secondAttribute="trailing" id="hoi-jM-rdX"/>
+                                    <constraint firstAttribute="bottom" secondItem="rdY-gD-DnM" secondAttribute="bottom" constant="8" id="wCS-Nc-gDG"/>
+                                    <constraint firstAttribute="trailing" secondItem="rdY-gD-DnM" secondAttribute="trailing" constant="8" id="xY9-bP-7KK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1oW-la-jac" firstAttribute="leading" secondItem="MLC-D3-fto" secondAttribute="leading" constant="16" id="AY0-17-3b0"/>
+                            <constraint firstItem="1oW-la-jac" firstAttribute="top" secondItem="MLC-D3-fto" secondAttribute="top" constant="16" id="HLI-Pa-vTe"/>
+                            <constraint firstItem="MLC-D3-fto" firstAttribute="trailing" secondItem="1oW-la-jac" secondAttribute="trailing" constant="16" id="M2m-Mm-KR4"/>
+                            <constraint firstItem="MLC-D3-fto" firstAttribute="bottom" secondItem="1oW-la-jac" secondAttribute="bottom" constant="16" id="iHI-1a-yHd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MLC-D3-fto"/>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="1oW-la-jac" id="CkQ-ZO-E10"/>
+                        <outlet property="searchBar" destination="ahY-Da-JAF" id="ebN-il-SGh"/>
+                        <outlet property="tableView" destination="rdY-gD-DnM" id="ixe-0A-GG6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmc-E0-o81" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953" y="117"/>
+            <point key="canvasLocation" x="1428" y="32"/>
         </scene>
     </scenes>
 </document>

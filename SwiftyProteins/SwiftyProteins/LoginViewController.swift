@@ -18,7 +18,9 @@ class LoginViewController: UIViewController {
     let loginContext: LAContext = LAContext.init()
     @IBAction func loginButtonTapped(sender: UIButton) {
         self.tryLogin(success: {
-            
+            DispatchQueue.main.async {
+                self.showProteinList()
+            }
         }, failure: {
             let alert = UIAlertController.init(title: "Error", message: "a message", preferredStyle: .alert)
             
@@ -52,14 +54,26 @@ class LoginViewController: UIViewController {
     }
 
     func dismissChildsVC() {
+        
         if let protein = self.proteinVC {
             protein.dismiss()
             protein.removeFromParentViewController()
+            self.proteinVC = nil
         }
         if let proteinList = self.proteinListVC {
             proteinList.dismiss()
             proteinList.removeFromParentViewController()
+            self.proteinListVC = nil
         }
+        self.checkLoginButton()
+    }
+    
+    func showProteinList() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProteinListViewController") as! ProteinListViewController
+        
+        self.proteinListVC = vc
+        self.loginButton.isHidden = true
+        self.present(vc, animated: true, completion: nil)
     }
     
     @discardableResult func checkLoginButton() -> Bool {
