@@ -57,12 +57,14 @@ class ProteinListViewController: UIViewController, DismissibleViewController, UI
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let compare = searchText.uppercased()
         
-        self.index = 0
-        for element in ProteinDataManager.ligands {
-            if element > compare {
-                break
+        if searchText.count <= 3 {
+            self.index = 0
+            for element in ProteinDataManager.ligands {
+                if element >= compare {
+                    break
+                }
+                self.index = self.index + 1
             }
-            self.index = self.index + 1
         }
         self.tableView.reloadSections(IndexSet.init(integersIn: 0...0), with: .automatic)
     }

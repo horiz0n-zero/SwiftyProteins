@@ -59,12 +59,12 @@ class LoginViewController: UIViewController {
         
         if let protein = self.proteinVC {
             protein.dismiss()
-            protein.removeFromParentViewController()
+            protein.dismiss(animated: true, completion: nil)
             self.proteinVC = nil
         }
         if let proteinList = self.proteinListVC {
             proteinList.dismiss()
-            proteinList.removeFromParentViewController()
+            proteinList.dismiss(animated: true, completion: nil)
             self.proteinListVC = nil
         }
         self.checkLoginButton()

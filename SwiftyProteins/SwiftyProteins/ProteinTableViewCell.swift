@@ -34,12 +34,9 @@ class ProteinTableViewCell: UITableViewCell {
                     self.ligandDownloadProgress.progress = 1
                 }
             }
-        }, failure: { error in
-            print("# error ", self.ligand, error)
-        }, progress: { forLigand, fraction in
+        }, failure: { _ in }, progress: { forLigand, fraction in
             DispatchQueue.main.async {
                 if forLigand == self.ligand {
-                    //self.ligandDownloadProgress.setProgress(Float(fraction), animated: false)
                     self.ligandDownloadProgress.progress = Float(fraction)
                 }
             }
@@ -50,6 +47,6 @@ class ProteinTableViewCell: UITableViewCell {
                     self.ligandImage.image = UIImage.init(data: data)
                 }
             }
-        }, failure: { error in print("# error \(self.ligand) ", error) }, progress: { _, _ in })
+        }, failure: { _ in }, progress: { _, _ in })
     }
 }
