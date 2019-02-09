@@ -11,7 +11,7 @@ import SceneKit
 
 class Scene: SCNScene {
     
-    static var shared: SCNScene!
+    static var shared: Scene!
     
     var camera: SCNCamera!
     var light: SCNLight!
@@ -63,7 +63,7 @@ class Scene: SCNScene {
     var spheres: [SCNNode] = []
     
     // molecule.Mode
-    
+    var atoms: [SCNNode] = []
 }
 
 fileprivate let distanceBackgroundSquare: CGFloat = 5
@@ -73,7 +73,7 @@ fileprivate enum CollisionType: Int {
     case ground = 1
     case superBall = 2
 }
-extension Scene { // background.Mode
+extension Scene: SCNPhysicsContactDelegate { // background.Mode
     
     func initialiseBackgroundMode() {
         func rectangle() -> SCNNode {
@@ -150,6 +150,15 @@ extension Scene { // background.Mode
     @inline (__always) fileprivate func randomPosition() -> CGFloat {
         return CGFloat(drand48()) * randomPositionFactor - randomPositionFactor / 2
     }
+ 
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        if contact.nodeA.geometry is SCNSphere {
+            contact.nodeA.physicsBody?.applyForce(SCNVector3.init(self.randomPosition(), self.randomPosition(), self.randomPosition()), asImpulse: true)
+        }
+        if contact.nodeB.geometry is SCNSphere {
+            contact.nodeB.physicsBody?.applyForce(SCNVector3.init(self.randomPosition(), self.randomPosition(), self.randomPosition()), asImpulse: true)
+        }
+    }
     
     func deinitialiseBackgroundMode() {
         for sphere in self.spheres {
@@ -162,27 +171,33 @@ extension Scene { // background.Mode
         self.boxContainers.removeAll()
     }
 }
-extension Scene: SCNPhysicsContactDelegate {
-    
-    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        if contact.nodeA.geometry is SCNSphere {
-            contact.nodeA.physicsBody?.applyForce(SCNVector3.init(self.randomPosition(), self.randomPosition(), self.randomPosition()), asImpulse: true)
-        }
-        if contact.nodeB.geometry is SCNSphere {
-            contact.nodeB.physicsBody?.applyForce(SCNVector3.init(self.randomPosition(), self.randomPosition(), self.randomPosition()), asImpulse: true)
-        }
-    }
-    
-}
 
 extension Scene { // molecule.Mode
     
     func initialiseMoleculeMode() {
+        func getAtome(from atom: Protein.Atom, radius: CGFloat = 0.1, scalePosition: Float = 0.5) -> SCNNode {
+            let sphere = SCNSphere.init(radius: radius)
+            
+            sphere.materials.first?.diffuse.contents = UIColor.blue
+            let ball = SCNNode.init(geometry: sphere)
+            
+            ball.position = atom.position * scalePosition
+            return ball
+        }
+        LoginViewController.shared.sceneView.allowsCameraControl = true
         
+        if let protein = LoginViewController.shared.proteinVC?.protein {
+            for atom in protein.atoms {
+                let node = getAtome(from: atom, radius: 0.1, scalePosition: 0.15)
+                
+                self.rootNode.addChildNode(node)
+                self.atoms.append(node)
+            }
+        }
     }
     
     func deinitialiseMoleculeMode() {
-        
+        LoginViewController.shared.sceneView.allowsCameraControl = false
     }
 }
 
@@ -194,7 +209,9 @@ extension Scene: SCNSceneRendererDelegate {
     
 }
 
-
+func *(lhs: SCNVector3, rhs: Float) -> SCNVector3 {
+    return SCNVector3.init(lhs.x * rhs, lhs.y * rhs, lhs.z * rhs)
+}
 
 
 

@@ -12,6 +12,7 @@
 		C4204D68220B014C007534DF /* ProteinDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4204D67220B014C007534DF /* ProteinDataManager.swift */; };
 		C44025D4220ED159001538F5 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44025D2220ED159001538F5 /* KeyboardViewController.swift */; };
 		C44025D5220ED159001538F5 /* KeyboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44025D3220ED159001538F5 /* KeyboardViewController.xib */; };
+		C447B281220F12E100589D5B /* Wording.swift in Sources */ = {isa = PBXBuildFile; fileRef = C447B280220F12E100589D5B /* Wording.swift */; };
 		C454B44821FC628B003249FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454B44721FC628B003249FD /* AppDelegate.swift */; };
 		C454B44A21FC628B003249FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454B44921FC628B003249FD /* LoginViewController.swift */; };
 		C454B44D21FC628B003249FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C454B44B21FC628B003249FD /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		C4204D67220B014C007534DF /* ProteinDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinDataManager.swift; sourceTree = "<group>"; };
 		C44025D2220ED159001538F5 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		C44025D3220ED159001538F5 /* KeyboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardViewController.xib; sourceTree = "<group>"; };
+		C447B280220F12E100589D5B /* Wording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wording.swift; sourceTree = "<group>"; };
 		C454B44421FC628B003249FD /* SwiftyProteins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyProteins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C454B44721FC628B003249FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C454B44921FC628B003249FD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				C4BA2E95220834D200B8664F /* ProteinViewController.swift */,
 				C454B45921FC6368003249FD /* Scene.swift */,
 				C454B45B21FC63D9003249FD /* Design.swift */,
+				C447B280220F12E100589D5B /* Wording.swift */,
 				C454B44B21FC628B003249FD /* Main.storyboard */,
 				C454B44E21FC628B003249FD /* Assets.xcassets */,
 				C454B45021FC628B003249FD /* LaunchScreen.storyboard */,
@@ -249,6 +252,7 @@
 				C454B44A21FC628B003249FD /* LoginViewController.swift in Sources */,
 				C4204D68220B014C007534DF /* ProteinDataManager.swift in Sources */,
 				C454B45C21FC63D9003249FD /* Design.swift in Sources */,
+				C447B281220F12E100589D5B /* Wording.swift in Sources */,
 				C4BA2E96220834D200B8664F /* ProteinViewController.swift in Sources */,
 				C4204D65220AE604007534DF /* ProteinTableViewCell.swift in Sources */,
 				C454B44821FC628B003249FD /* AppDelegate.swift in Sources */,

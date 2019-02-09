@@ -53,6 +53,34 @@ class ProteinListViewController: UIViewController, DismissibleViewController, UI
         cell.fill(ligand: ProteinDataManager.ligands[indexPath.row + self.index], manager: self.manager)
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = self.tableView.cellForRow(at: indexPath) as? ProteinTableViewCell {
+            if cell.ligandDownloadProgress.progress < 1 {
+                let alert = UIAlertController.init(title: Wording.shared["error"], message: Wording.shared["error.requiredfile"], preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction.init(title: Wording.shared["ok"], style: .default, handler: nil))
+                return self.present(alert, animated: true, completion: nil)
+            }
+            self.manager.proteinFile(ligand: cell.ligand, success: { ligand, data in
+                if let content = String.init(data: data, encoding: String.Encoding.utf8), content.count > 0 {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProteinViewController") as! ProteinViewController
+                    
+                    vc.modalPresentationStyle = .overCurrentContext
+                    vc.content = content
+                    vc.ligand = ligand
+                    LoginViewController.shared.proteinVC = vc
+                    self.hideElements()
+                    self.present(vc, animated: true, completion: nil)
+                }
+                else {
+                    let alert = UIAlertController.init(title: Wording.shared["error"], message: Wording.shared["error.fileempty"], preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction.init(title: Wording.shared["ok"], style: .default, handler: nil))
+                    return self.present(alert, animated: true, completion: nil)
+                }
+            }, failure: { _ in }, progress: { _, _ in })
+        }
+    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let compare = searchText.uppercased()
