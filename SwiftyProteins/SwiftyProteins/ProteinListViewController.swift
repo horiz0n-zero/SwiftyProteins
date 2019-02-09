@@ -15,27 +15,30 @@ class ProteinListViewController: UIViewController, DismissibleViewController, UI
     
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableViewBottom: NSLayoutConstraint!
+    var tableViewBottomStartConstant: CGFloat!
     
     var manager: ProteinDataManager = ProteinDataManager.init()
     var index: Int = 0
-    var displayCount: Int = 5 // 50 !!! bobo
+    var displayCount: Int = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchBar.tintColor = Design.borderColor
+        self.searchBar.tintColor = Design.selenium
         self.searchBar.layer.cornerRadius = 16
-        self.searchBar.barTintColor = Design.borderColor
+        self.searchBar.barTintColor = Design.selenium
         self.searchBar.returnKeyType = .`continue`
         self.searchBar.delegate = self
         self.contentView.layer.borderWidth = 1
-        self.contentView.layer.borderColor = Design.borderColor.cgColor
+        self.contentView.layer.borderColor = Design.selenium.cgColor
         self.contentView.layer.cornerRadius = 16
         self.contentView.layer.masksToBounds = true
         
         self.tableView.register(UINib.init(nibName: "ProteinTableViewCell", bundle: nil), forCellReuseIdentifier: "ProteinTableViewCell")
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.view.backgroundColor = Design.backgroundColor
+        self.tableViewBottomStartConstant = self.tableViewBottom.constant
+        self.view.backgroundColor = UIColor.clear
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,11 +66,52 @@ class ProteinListViewController: UIViewController, DismissibleViewController, UI
         }
         self.tableView.reloadSections(IndexSet.init(integersIn: 0...0), with: .automatic)
     }
+
+    func dismiss() {
+        self.searchBar.resignFirstResponder()
+    }
+}
+
+extension ProteinListViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillAppear(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillDisappear(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
     
-    func dismiss() { }
+    @objc func keyboardWillAppear(notification: Notification) {
+        guard let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber,
+            let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber,
+            let frame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        
+        self.view.setNeedsLayout()
+        UIView.animate(withDuration: TimeInterval(duration.doubleValue), delay: 0, options: UIViewAnimationOptions.init(rawValue: curve.uintValue), animations: {
+            self.tableViewBottom.constant = self.tableViewBottomStartConstant + frame.height
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    @objc func keyboardWillDisappear(notification: Notification) {
+        guard let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber,
+            let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber else {
+                return
+        }
+        
+        self.view.setNeedsLayout()
+        UIView.animate(withDuration: TimeInterval(duration.doubleValue), delay: 0, options: UIViewAnimationOptions.init(rawValue: curve.uintValue), animations: {
+            self.tableViewBottom.constant = self.tableViewBottomStartConstant
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
 }
-

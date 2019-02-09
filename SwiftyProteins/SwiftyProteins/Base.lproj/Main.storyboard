@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,7 +33,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EJZ-NT-T7s" secondAttribute="trailing" id="3Tq-sg-iGg"/>
                             <constraint firstItem="3jE-5l-Pxx" firstAttribute="centerY" secondItem="EJZ-NT-T7s" secondAttribute="centerY" id="3nc-00-sQG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EJZ-NT-T7s" secondAttribute="bottom" id="5H8-Q3-A2O"/>
+                            <constraint firstAttribute="bottom" secondItem="EJZ-NT-T7s" secondAttribute="bottom" id="5H8-Q3-A2O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3jE-5l-Pxx" secondAttribute="trailing" constant="32" id="Fy8-bw-Z03"/>
                             <constraint firstItem="EJZ-NT-T7s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HjX-q8-dU2"/>
                             <constraint firstItem="3jE-5l-Pxx" firstAttribute="centerX" secondItem="EJZ-NT-T7s" secondAttribute="centerX" id="Rpn-yW-ktt"/>
@@ -96,6 +95,7 @@
                         <outlet property="contentView" destination="1oW-la-jac" id="CkQ-ZO-E10"/>
                         <outlet property="searchBar" destination="ahY-Da-JAF" id="ebN-il-SGh"/>
                         <outlet property="tableView" destination="rdY-gD-DnM" id="ixe-0A-GG6"/>
+                        <outlet property="tableViewBottom" destination="iHI-1a-yHd" id="HaT-yn-mdF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmc-E0-o81" userLabel="First Responder" sceneMemberID="firstResponder"/>

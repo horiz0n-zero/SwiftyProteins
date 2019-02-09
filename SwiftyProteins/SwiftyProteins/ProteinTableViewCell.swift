@@ -20,10 +20,9 @@ class ProteinTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.ligandImage.layer.cornerRadius = 8
         self.ligandImage.layer.masksToBounds = true
-        // self.ligandImage.backgroundColor = UIColor.white.withAlphaComponent(0.4)
-        self.ligandLabel.textColor = Design.textLightColor
+        self.ligandLabel.textColor = Design.black
         self.ligandDownloadProgress.progress = 0
-        //self.ligandDownloadProgress.tintColor = Design.borderColor
+        self.ligandDownloadProgress.tintColor = Design.selenium
     }
     
     func fill(ligand: String, manager: ProteinDataManager) {

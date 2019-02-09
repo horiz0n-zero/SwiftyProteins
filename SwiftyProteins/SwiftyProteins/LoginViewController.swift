@@ -12,15 +12,17 @@ import LocalAuthentication
 
 class LoginViewController: UIViewController {
 
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     @IBOutlet var sceneView: SCNView!
     
     @IBOutlet var loginButton: UIButton!
     let loginContext: LAContext = LAContext.init()
     @IBAction func loginButtonTapped(sender: UIButton) {
         self.tryLogin(success: {
-            DispatchQueue.main.async {
-                self.showProteinList()
-            }
+            self.showProteinList()
         }, failure: {
             let alert = UIAlertController.init(title: "Error", message: "a message", preferredStyle: .alert)
             
@@ -39,9 +41,9 @@ class LoginViewController: UIViewController {
         LoginViewController.shared = self
         
         self.loginButton.layer.cornerRadius = self.loginButton.frame.height / 2
-        self.loginButton.layer.borderColor = Design.borderColor.cgColor
-        self.loginButton.layer.borderWidth = 1
-        self.loginButton.setTitleColor(Design.textLightColor, for: .normal)
+        self.loginButton.layer.borderColor = Design.black.cgColor
+        self.loginButton.layer.borderWidth = 2
+        self.loginButton.setTitleColor(Design.black, for: .normal)
         
         let scene = Scene()
         
@@ -49,7 +51,7 @@ class LoginViewController: UIViewController {
         self.sceneView.backgroundColor = Design.backgroundColor
         self.sceneView.delegate = scene
         self.sceneView.allowsCameraControl = true
-        self.sceneView.isPlaying = true
+        // self.sceneView.isPlaying = true
         self.checkLoginButton()
     }
 
@@ -71,6 +73,7 @@ class LoginViewController: UIViewController {
     func showProteinList() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProteinListViewController") as! ProteinListViewController
         
+        vc.modalPresentationStyle = .overCurrentContext
         self.proteinListVC = vc
         self.loginButton.isHidden = true
         self.present(vc, animated: true, completion: nil)
@@ -90,11 +93,13 @@ class LoginViewController: UIViewController {
     }
     func tryLogin(success: @escaping () -> (), failure: @escaping () -> ()) {
         self.loginContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "localize reason", reply: { can, error in
-            if can {
-                success()
-            }
-            else {
-                failure()
+            DispatchQueue.main.async {
+                if can {
+                    success()
+                }
+                else {
+                    failure()
+                }
             }
         })
     }
