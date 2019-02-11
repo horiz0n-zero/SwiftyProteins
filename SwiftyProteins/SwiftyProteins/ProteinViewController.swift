@@ -16,8 +16,25 @@ class ProteinViewController: UIViewController, DismissibleViewController {
     var ligand: String!
     var protein: Protein!
     
+    @IBOutlet var bottomView: UIView!
+    @IBOutlet var bottomButtons: [UIButton]!
+    
+    
+    //@IBOutlet var settingsView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        for button in self.bottomButtons {
+            if let image = button.imageView?.image {
+                let template = image.withRenderingMode(.alwaysTemplate)
+                
+                button.setImage(template, for: .normal)
+                button.tintColor = Design.black
+            }
+        }
+        self.bottomView.backgroundColor = Design.selenium
+        //self.settingsView.backgroundColor = UIColor.clear
+        
         self.protein = Protein.init(content: self.content)
         print(self.ligand)
         for atom in self.protein.atoms {
@@ -27,6 +44,14 @@ class ProteinViewController: UIViewController, DismissibleViewController {
             print(conect)
         }
         Scene.shared.mode = .molecule
+    }
+    
+    
+    @IBAction func deleteAction(_ sender: UIButton) {
+        LoginViewController.shared.proteinVC = nil
+        LoginViewController.shared.proteinListVC?.unhideElements()
+        self.dismiss()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func dismiss() {

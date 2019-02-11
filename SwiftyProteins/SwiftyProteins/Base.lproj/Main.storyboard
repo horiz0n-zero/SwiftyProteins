@@ -5,7 +5,10 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -49,6 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="535" y="29"/>
         </scene>
         <!--Protein List View Controller-->
         <scene sceneID="fgM-ff-12g">
@@ -109,13 +113,78 @@
                     <view key="view" contentMode="scaleToFill" id="ZHD-tB-bfg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLQ-fU-F6H">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YAb-MV-dq1">
+                                        <rect key="frame" x="42" y="8" width="291" height="84"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtp-ad-yfq">
+                                                <rect key="frame" x="0.0" y="21" width="42" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="dtp-ad-yfq" secondAttribute="height" multiplier="1:1" id="9kp-ih-mDH"/>
+                                                </constraints>
+                                                <state key="normal" image="share"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xel-kH-42y">
+                                                <rect key="frame" x="124.5" y="21" width="42.5" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="xel-kH-42y" secondAttribute="height" multiplier="1:1" id="MRt-xo-9LM"/>
+                                                </constraints>
+                                                <state key="normal" image="delete"/>
+                                                <connections>
+                                                    <action selector="deleteAction:" destination="L4Q-OS-X4e" eventType="touchUpInside" id="wDO-5d-fP6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77k-Te-TB5">
+                                                <rect key="frame" x="249" y="21" width="42" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="77k-Te-TB5" secondAttribute="height" multiplier="1:1" id="WXD-QI-QFk"/>
+                                                </constraints>
+                                                <state key="normal" image="setting"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="xel-kH-42y" firstAttribute="height" secondItem="YAb-MV-dq1" secondAttribute="height" multiplier="0.5" id="Cyj-aT-2VL"/>
+                                            <constraint firstItem="dtp-ad-yfq" firstAttribute="height" secondItem="xel-kH-42y" secondAttribute="height" id="ESP-r0-CXB"/>
+                                            <constraint firstItem="77k-Te-TB5" firstAttribute="height" secondItem="xel-kH-42y" secondAttribute="height" id="ZQf-VH-91d"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.98979048560000005" blue="0.78616586980000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="YAb-MV-dq1" secondAttribute="trailing" constant="42" id="Kaa-Xh-kx0"/>
+                                    <constraint firstItem="YAb-MV-dq1" firstAttribute="top" secondItem="mLQ-fU-F6H" secondAttribute="top" constant="8" id="n3w-xo-0My"/>
+                                    <constraint firstAttribute="bottom" secondItem="YAb-MV-dq1" secondAttribute="bottom" constant="8" id="ohl-uY-rrI"/>
+                                    <constraint firstItem="YAb-MV-dq1" firstAttribute="leading" secondItem="mLQ-fU-F6H" secondAttribute="leading" constant="42" id="yMi-sq-IEz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gcg-mp-h4K" firstAttribute="trailing" secondItem="mLQ-fU-F6H" secondAttribute="trailing" id="EeU-LR-meP"/>
+                            <constraint firstItem="mLQ-fU-F6H" firstAttribute="height" secondItem="ZHD-tB-bfg" secondAttribute="height" multiplier="0.15" id="P3Q-Ov-FkK"/>
+                            <constraint firstItem="mLQ-fU-F6H" firstAttribute="leading" secondItem="gcg-mp-h4K" secondAttribute="leading" id="UvI-ko-ktC"/>
+                            <constraint firstAttribute="bottom" secondItem="mLQ-fU-F6H" secondAttribute="bottom" id="ojO-Mb-K2G"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gcg-mp-h4K"/>
                     </view>
+                    <connections>
+                        <outlet property="bottomView" destination="mLQ-fU-F6H" id="9SD-nE-i59"/>
+                        <outletCollection property="bottomButtons" destination="xel-kH-42y" collectionClass="NSMutableArray" id="Bpd-k6-4oj"/>
+                        <outletCollection property="bottomButtons" destination="77k-Te-TB5" collectionClass="NSMutableArray" id="dxe-rH-LN6"/>
+                        <outletCollection property="bottomButtons" destination="dtp-ad-yfq" collectionClass="NSMutableArray" id="PIe-dN-wsg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIW-Jc-hXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2206" y="30"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="delete" width="120" height="120"/>
+        <image name="setting" width="120" height="120"/>
+        <image name="share" width="120" height="120"/>
+    </resources>
 </document>

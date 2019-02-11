@@ -113,28 +113,12 @@ extension Scene: SCNPhysicsContactDelegate { // background.Mode
             circleNode.physicsBody?.categoryBitMask = CollisionType.superBall.rawValue
             circleNode.physicsBody?.collisionBitMask = CollisionType.ground.rawValue
             circleNode.physicsBody?.contactTestBitMask = CollisionType.ground.rawValue
-            //circleNode.physicsBody?.friction = 23
-            //circleNode.physicsBody?.mass = 1
-            //circleNode.physicsBody?.restitution = 10
-            
             let light = SCNLight.init()
             
             light.type = .ambient
             light.color = Design.redSelenium
             light.intensity = 75
             circleNode.light = light
-            /*
-            circleNode.runAction(SCNAction.repeatForever(SCNAction.sequence([SCNAction.run({ node in
-                
-                func randomPosition() -> CGFloat {
-                    let mutiple: CGFloat = 20
-                    let diff = mutiple / 2
-                    
-                    return CGFloat(drand48()) * mutiple - diff
-                }
-                
-                node.physicsBody?.applyForce(SCNVector3.init(randomPosition(), randomPosition(), randomPosition()), asImpulse: true)
-            }), SCNAction.wait(duration: 1, withRange: 0.5)])))*/
             return circleNode
         }
         
@@ -178,17 +162,23 @@ extension Scene { // molecule.Mode
         func getAtome(from atom: Protein.Atom, radius: CGFloat = 0.1, scalePosition: Float = 0.5) -> SCNNode {
             let sphere = SCNSphere.init(radius: radius)
             
-            sphere.materials.first?.diffuse.contents = UIColor.blue
+            if let color = Design.getPCK(atom: atom.atom) {
+                sphere.materials.first?.diffuse.contents = color
+            }
+            else {
+                sphere.materials.first?.diffuse.contents = UIColor.purple
+            }
             let ball = SCNNode.init(geometry: sphere)
             
             ball.position = atom.position * scalePosition
             return ball
         }
         LoginViewController.shared.sceneView.allowsCameraControl = true
+        self.light.color = UIColor.white
         
         if let protein = LoginViewController.shared.proteinVC?.protein {
             for atom in protein.atoms {
-                let node = getAtome(from: atom, radius: 0.1, scalePosition: 0.15)
+                let node = getAtome(from: atom, radius: 0.05, scalePosition: 0.10)
                 
                 self.rootNode.addChildNode(node)
                 self.atoms.append(node)
@@ -198,6 +188,11 @@ extension Scene { // molecule.Mode
     
     func deinitialiseMoleculeMode() {
         LoginViewController.shared.sceneView.allowsCameraControl = false
+        self.light.color = Design.redSelenium
+        for atom in self.atoms {
+            atom.removeFromParentNode()
+        }
+        self.atoms.removeAll()
     }
 }
 
