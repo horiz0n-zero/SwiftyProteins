@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93B816202215D5ED00227686 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B816222215D5ED00227686 /* InfoPlist.strings */; };
+		93B816252215D5ED00227686 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B816272215D5ED00227686 /* InfoPlist.strings */; };
 		C4204D65220AE604007534DF /* ProteinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4204D63220AE604007534DF /* ProteinTableViewCell.swift */; };
 		C4204D66220AE604007534DF /* ProteinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4204D64220AE604007534DF /* ProteinTableViewCell.xib */; };
 		C4204D68220B014C007534DF /* ProteinDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4204D67220B014C007534DF /* ProteinDataManager.swift */; };
@@ -51,6 +53,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		93B816212215D5ED00227686 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93B816262215D5ED00227686 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93EBEC802215D4C800CB9CB4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		93EBEC812215D4C800CB9CB4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C4204D63220AE604007534DF /* ProteinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinTableViewCell.swift; sourceTree = "<group>"; };
 		C4204D64220AE604007534DF /* ProteinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProteinTableViewCell.xib; sourceTree = "<group>"; };
 		C4204D67220B014C007534DF /* ProteinDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinDataManager.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 		C454B44621FC628B003249FD /* SwiftyProteins */ = {
 			isa = PBXGroup;
 			children = (
+				93B816272215D5ED00227686 /* InfoPlist.strings */,
 				C454B44721FC628B003249FD /* AppDelegate.swift */,
 				C454B44921FC628B003249FD /* LoginViewController.swift */,
 				C4BA2E93220834A200B8664F /* ProteinListViewController.swift */,
@@ -132,6 +139,7 @@
 		C4826D5F220DAE9C0020C22D /* customKeyboard */ = {
 			isa = PBXGroup;
 			children = (
+				93B816222215D5ED00227686 /* InfoPlist.strings */,
 				C4826D62220DAE9C0020C22D /* Info.plist */,
 				C44025D2220ED159001538F5 /* KeyboardViewController.swift */,
 				C44025D3220ED159001538F5 /* KeyboardViewController.xib */,
@@ -231,6 +239,7 @@
 				C4204D66220AE604007534DF /* ProteinTableViewCell.xib in Resources */,
 				C454B44F21FC628B003249FD /* Assets.xcassets in Resources */,
 				C454B44D21FC628B003249FD /* Main.storyboard in Resources */,
+				93B816252215D5ED00227686 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C44025D5220ED159001538F5 /* KeyboardViewController.xib in Resources */,
+				93B816202215D5ED00227686 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,10 +291,27 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		93B816222215D5ED00227686 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93B816212215D5ED00227686 /* fr */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		93B816272215D5ED00227686 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93B816262215D5ED00227686 /* fr */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		C454B44B21FC628B003249FD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C454B44C21FC628B003249FD /* Base */,
+				93EBEC802215D4C800CB9CB4 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -293,6 +320,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C454B45121FC628B003249FD /* Base */,
+				93EBEC812215D4C800CB9CB4 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -304,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -361,6 +390,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
