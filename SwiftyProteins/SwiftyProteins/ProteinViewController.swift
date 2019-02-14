@@ -54,6 +54,12 @@ class ProteinViewController: UIViewController, DismissibleViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func shareAction() {
+        let image = LoginViewController.shared.sceneView.snapshot()
+        let shareViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(shareViewController, animated: true, completion: nil)
+    }
+    
     func dismiss() {
         Scene.shared.mode = .background
     }
