@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		93B816202215D5ED00227686 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B816222215D5ED00227686 /* InfoPlist.strings */; };
 		93B816252215D5ED00227686 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B816272215D5ED00227686 /* InfoPlist.strings */; };
+		93B8162B2215D96300227686 /* LauchScreenViewScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B8162A2215D96300227686 /* LauchScreenViewScreenViewController.swift */; };
 		C4204D65220AE604007534DF /* ProteinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4204D63220AE604007534DF /* ProteinTableViewCell.swift */; };
 		C4204D66220AE604007534DF /* ProteinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4204D64220AE604007534DF /* ProteinTableViewCell.xib */; };
 		C4204D68220B014C007534DF /* ProteinDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4204D67220B014C007534DF /* ProteinDataManager.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		93B816212215D5ED00227686 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		93B816262215D5ED00227686 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93B8162A2215D96300227686 /* LauchScreenViewScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchScreenViewScreenViewController.swift; sourceTree = "<group>"; };
 		93EBEC802215D4C800CB9CB4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		93EBEC812215D4C800CB9CB4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C4204D63220AE604007534DF /* ProteinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinTableViewCell.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				93B816272215D5ED00227686 /* InfoPlist.strings */,
 				C454B44721FC628B003249FD /* AppDelegate.swift */,
+				93B8162A2215D96300227686 /* LauchScreenViewScreenViewController.swift */,
 				C454B44921FC628B003249FD /* LoginViewController.swift */,
 				C4BA2E93220834A200B8664F /* ProteinListViewController.swift */,
 				C4204D67220B014C007534DF /* ProteinDataManager.swift */,
@@ -268,6 +271,7 @@
 				C454B44821FC628B003249FD /* AppDelegate.swift in Sources */,
 				C454B45A21FC6368003249FD /* Scene.swift in Sources */,
 				C4BA2E94220834A200B8664F /* ProteinListViewController.swift in Sources */,
+				93B8162B2215D96300227686 /* LauchScreenViewScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
