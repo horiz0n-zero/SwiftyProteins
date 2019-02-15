@@ -1,5 +1,5 @@
 /* (No Comment) */
-"CFBundleName" = "$(PRODUCT_NAME)";
+"CFBundleName" = "Proteins";
 
 /* (No Comment) */
 "NSPhotoLibraryAddUsageDescription" = "Sauve tes plus belles captures d'écran dans tes photos :)";
