@@ -60,10 +60,9 @@ class ProteinListViewController: UIViewController, DismissibleViewController, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = self.tableView.cellForRow(at: indexPath) as? ProteinTableViewCell {
             if cell.ligandDownloadProgress.progress < 1 {
-                let alert = UIAlertController.init(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Required file not found", comment: ""), preferredStyle: .alert)
-
-                alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
-                return self.present(alert, animated: true, completion: nil)
+                let alert = SwiftyProteinsAlert.init(contents: [.bigTitle(NSLocalizedString("Error", comment: "")), .content(NSLocalizedString("Required file not found", comment: ""))], actions: [.default("OK", { })])
+                
+                alert.present(in: self.view)
             }
             self.manager.proteinFile(ligand: cell.ligand, success: { ligand, data in
                 if let content = String.init(data: data, encoding: String.Encoding.utf8), content.count > 0 {
@@ -77,10 +76,9 @@ class ProteinListViewController: UIViewController, DismissibleViewController, UI
                     self.present(vc, animated: true, completion: nil)
                 }
                 else {
-                    let alert = UIAlertController.init(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("File empty", comment: ""), preferredStyle: .alert)
+                    let alert = SwiftyProteinsAlert.init(contents: [.bigTitle(NSLocalizedString("Error", comment: "")), .content(NSLocalizedString("File empty", comment: ""))], actions: [.default("OK", { })])
                     
-                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
-                    return self.present(alert, animated: true, completion: nil)
+                    alert.present(in: self.view)
                 }
             }, failure: { _ in }, progress: { _, _ in })
         }

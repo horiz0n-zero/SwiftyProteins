@@ -24,10 +24,9 @@ class LoginViewController: UIViewController {
         self.tryLogin(success: {
             self.showProteinList()
         }, failure: {
-            let alert = UIAlertController.init(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Authentification error", comment: ""), preferredStyle: .alert)
+            let alert = SwiftyProteinsAlert.init(contents: [.bigTitle(NSLocalizedString("Error", comment: "")), .content(NSLocalizedString("Authentification error", comment: ""))], actions: [.default("OK", { })])
             
-            alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            alert.present(in: self.view)
         })
     }
     
