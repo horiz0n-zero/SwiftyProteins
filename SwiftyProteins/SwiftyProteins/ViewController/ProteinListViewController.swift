@@ -60,9 +60,9 @@ class ProteinListViewController: UIViewController, DismissibleViewController, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = self.tableView.cellForRow(at: indexPath) as? ProteinTableViewCell {
             if cell.ligandDownloadProgress.progress < 1 {
-                let alert = UIAlertController.init(title: Wording.shared["error"], message: Wording.shared["error.requiredfile"], preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction.init(title: Wording.shared["ok"], style: .default, handler: nil))
+                let alert = UIAlertController.init(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Required file not found", comment: ""), preferredStyle: .alert)
+
+                alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
                 return self.present(alert, animated: true, completion: nil)
             }
             self.manager.proteinFile(ligand: cell.ligand, success: { ligand, data in
@@ -77,9 +77,9 @@ class ProteinListViewController: UIViewController, DismissibleViewController, UI
                     self.present(vc, animated: true, completion: nil)
                 }
                 else {
-                    let alert = UIAlertController.init(title: Wording.shared["error"], message: Wording.shared["error.fileempty"], preferredStyle: .alert)
+                    let alert = UIAlertController.init(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("File empty", comment: ""), preferredStyle: .alert)
                     
-                    alert.addAction(UIAlertAction.init(title: Wording.shared["ok"], style: .default, handler: nil))
+                    alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
                     return self.present(alert, animated: true, completion: nil)
                 }
             }, failure: { _ in }, progress: { _, _ in })
