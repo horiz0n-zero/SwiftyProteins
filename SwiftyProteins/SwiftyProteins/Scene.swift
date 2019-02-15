@@ -157,11 +157,14 @@ extension Scene: SCNPhysicsContactDelegate { // background.Mode
     }
 }
 
+fileprivate let atomRadius: CGFloat = 0.05
+fileprivate let connectionRadius: CGFloat = 0.025
+fileprivate let scalePosition: Float = 0.10
 extension Scene { // molecule.Mode
     
     func initialiseMoleculeMode() {
-        func getAtome(from atom: Protein.Atom, radius: CGFloat = 0.1, scalePosition: Float = 0.5) -> SCNNode {
-            let sphere = SCNSphere.init(radius: radius)
+        func getAtome(from atom: Protein.Atom) -> SCNNode {
+            let sphere = SCNSphere.init(radius: atomRadius)
             
             if let color = Design.getPCK(atom: atom.atom) {
                 sphere.materials.first?.diffuse.contents = color
@@ -175,45 +178,33 @@ extension Scene { // molecule.Mode
             ball.position = atom.position * scalePosition
             return ball
         }
-        func getConection(start startPoint: SCNVector3, end endPoint: SCNVector3,
-                          radius: CGFloat = 0.1) -> SCNNode {
-            let dis = CGFloat(distance(float3(startPoint), float3(endPoint)))
-            let sphere = SCNCylinder.init(radius: radius / 2, height: dis)
-           
-            sphere.materials.first?.diffuse.contents = UIColor.green
-            let node = SCNNode.init(geometry: sphere)
+        func getConection(start startPoint: SCNVector3, end endPoint: SCNVector3) -> SCNNode {
+            let vector = endPoint - startPoint
+            let len = length(float3(vector))
+            let cylinder = SCNCylinder(radius: connectionRadius, height: CGFloat(len))
             
-            func middlePoint(s: SCNVector3, e: SCNVector3) -> SCNVector3 {
-                func middle(s: Float, e: Float) -> Float {
-                    if s > e {
-                        return (s - e) / 2 + e
-                    }
-                    else {
-                        return (e - s) / 2 + s
-                    }
-                }
-                
-                return SCNVector3.init(middle(s: s.x, e: e.x), middle(s: s.y, e: e.y), middle(s: s.z, e: e.z))
-            }
+            cylinder.firstMaterial?.diffuse.contents = Design.black
+            let node = SCNNode(geometry: cylinder)
             
-            node.position = middlePoint(s: startPoint, e: endPoint)
-            let v = startPoint - endPoint
+            node.position = (endPoint + startPoint) / 2
+            node.eulerAngles = SCNVector3Make(.pi / 2,
+                                              acos((endPoint.z - startPoint.z) / len),
+                                              atan2((endPoint.y - startPoint.y), (endPoint.x - startPoint.x)))
             
-            node.eulerAngles = SCNVector3.init(atan2(v.x, v.z) * 180 / .pi, sqrt(pow(v.x, 2) + pow(v.z, 2)), 0)
             return node
         }
         
         self.light.color = UIColor.white
         if let protein = LoginViewController.shared.proteinVC?.protein {
             for atom in protein.atoms {
-                let node = getAtome(from: atom, radius: 0.05, scalePosition: 0.10)
+                let node = getAtome(from: atom)
                 
                 self.rootNode.addChildNode(node)
                 self.atoms.append(node)
             }
             for conect in protein.connections {
                 for idConect in conect.connected {
-                    let node = getConection(start: self.atoms[conect.id].position, end: self.atoms[idConect].position, radius: 0.05)
+                    let node = getConection(start: self.atoms[conect.id].position, end: self.atoms[idConect].position)
                     
                     self.rootNode.addChildNode(node)
                     self.connections.append(node)
@@ -237,8 +228,8 @@ extension Scene { // molecule.Mode
 
 extension Scene: SCNSceneRendererDelegate {
     
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        
+    func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
+        glLineWidth(40)
     }
     
 }
@@ -249,3 +240,12 @@ func *(lhs: SCNVector3, rhs: Float) -> SCNVector3 {
 func -(lhs: SCNVector3, rhs: SCNVector3) -> SCNVector3 {
     return SCNVector3.init(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z)
 }
+func +(lhs: SCNVector3, rhs: SCNVector3) -> SCNVector3 {
+    return SCNVector3.init(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z)
+}
+func /(lhs: SCNVector3, rhs: Float) -> SCNVector3 {
+    return SCNVector3.init(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs)
+}
+
+
+

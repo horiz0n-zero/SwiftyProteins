@@ -2,3 +2,4 @@
 	Custom Keyboard
 	Molecule preview
 	background animation
+	custom Alert

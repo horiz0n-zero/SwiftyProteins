@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		93B816202215D5ED00227686 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B816222215D5ED00227686 /* InfoPlist.strings */; };
 		93B816252215D5ED00227686 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B816272215D5ED00227686 /* InfoPlist.strings */; };
+		C4057BA82216DCF800AE43B5 /* SwiftyProteinsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4057BA72216DCF800AE43B5 /* SwiftyProteinsAlert.swift */; };
 		C4204D65220AE604007534DF /* ProteinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4204D63220AE604007534DF /* ProteinTableViewCell.swift */; };
 		C4204D66220AE604007534DF /* ProteinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4204D64220AE604007534DF /* ProteinTableViewCell.xib */; };
 		C4204D68220B014C007534DF /* ProteinDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4204D67220B014C007534DF /* ProteinDataManager.swift */; };
@@ -57,6 +58,7 @@
 		93B816262215D5ED00227686 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		93EBEC802215D4C800CB9CB4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		93EBEC812215D4C800CB9CB4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C4057BA72216DCF800AE43B5 /* SwiftyProteinsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyProteinsAlert.swift; sourceTree = "<group>"; };
 		C4204D63220AE604007534DF /* ProteinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinTableViewCell.swift; sourceTree = "<group>"; };
 		C4204D64220AE604007534DF /* ProteinTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProteinTableViewCell.xib; sourceTree = "<group>"; };
 		C4204D67220B014C007534DF /* ProteinDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinDataManager.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				C4204D64220AE604007534DF /* ProteinTableViewCell.xib */,
 				C4BA2E95220834D200B8664F /* ProteinViewController.swift */,
 				C454B45921FC6368003249FD /* Scene.swift */,
+				C4057BA72216DCF800AE43B5 /* SwiftyProteinsAlert.swift */,
 				C454B45B21FC63D9003249FD /* Design.swift */,
 				C447B280220F12E100589D5B /* Wording.swift */,
 				C454B44B21FC628B003249FD /* Main.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4057BA82216DCF800AE43B5 /* SwiftyProteinsAlert.swift in Sources */,
 				C454B44A21FC628B003249FD /* LoginViewController.swift in Sources */,
 				C4204D68220B014C007534DF /* ProteinDataManager.swift in Sources */,
 				C454B45C21FC63D9003249FD /* Design.swift in Sources */,

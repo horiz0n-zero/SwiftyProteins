@@ -20,7 +20,7 @@ class ProteinViewController: UIViewController, DismissibleViewController {
     @IBOutlet var bottomButtons: [UIButton]!
     
     //@IBOutlet var settingsView: UIView!
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         for button in self.bottomButtons {
@@ -70,6 +70,7 @@ class ProteinViewController: UIViewController, DismissibleViewController {
     @IBAction func shareAction() {
         let image = LoginViewController.shared.sceneView.snapshot()
         let shareViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
         present(shareViewController, animated: true, completion: nil)
     }
     

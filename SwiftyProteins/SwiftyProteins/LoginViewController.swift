@@ -50,6 +50,7 @@ class LoginViewController: UIViewController {
         self.sceneView.scene = scene
         self.sceneView.backgroundColor = Design.backgroundColor
         self.sceneView.allowsCameraControl = true
+        self.sceneView.delegate = scene
         self.checkLoginButton()
     }
 
