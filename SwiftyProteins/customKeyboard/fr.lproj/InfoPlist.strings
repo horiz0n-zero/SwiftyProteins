@@ -1,1 +1,6 @@
-/* No Localized Strings */
+/* (No Comment) */
+"CFBundleDisplayName" = "customKeyboard";
+
+/* (No Comment) */
+"CFBundleName" = "$(PRODUCT_NAME)";
+
