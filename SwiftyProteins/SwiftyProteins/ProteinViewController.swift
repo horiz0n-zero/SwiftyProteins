@@ -19,7 +19,6 @@ class ProteinViewController: UIViewController, DismissibleViewController {
     @IBOutlet var bottomView: UIView!
     @IBOutlet var bottomButtons: [UIButton]!
     
-    
     //@IBOutlet var settingsView: UIView!
     
     override func viewDidLoad() {
@@ -46,14 +45,28 @@ class ProteinViewController: UIViewController, DismissibleViewController {
         Scene.shared.mode = .molecule
     }
     
-    
     @IBAction func deleteAction(_ sender: UIButton) {
         LoginViewController.shared.proteinVC = nil
-        LoginViewController.shared.proteinListVC?.unhideElements()
         self.dismiss()
         self.dismiss(animated: true, completion: nil)
     }
     
+    /*override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        LoginViewController.shared.sceneView.touchesBegan(touches, with: event)
+    }
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        LoginViewController.shared.sceneView.touchesMoved(touches, with: event)
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        LoginViewController.shared.sceneView.touchesEnded(touches, with: event)
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        LoginViewController.shared.sceneView.touchesCancelled(touches, with: event)
+    }*/
     @IBAction func shareAction() {
         let image = LoginViewController.shared.sceneView.snapshot()
         let shareViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
@@ -61,6 +74,7 @@ class ProteinViewController: UIViewController, DismissibleViewController {
     }
     
     func dismiss() {
+        LoginViewController.shared.proteinListVC?.unhideElements()
         Scene.shared.mode = .background
     }
 }
@@ -93,10 +107,15 @@ struct Protein {
         var connected: [Int] = []
         
         init(line: [Substring]) {
-            self.id = Int(line[1]) ?? 0
+            if let id = Int(line[1]) {
+                self.id = id - 1
+            }
+            else {
+                self.id = 0
+            }
             for conect in 2 ..< line.count {
                 if let number = Int(line[conect]) {
-                    self.connected.append(number)
+                    self.connected.append(number - 1)
                 }
             }
         }
