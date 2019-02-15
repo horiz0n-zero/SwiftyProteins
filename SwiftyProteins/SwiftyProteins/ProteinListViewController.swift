@@ -29,6 +29,10 @@ class ProteinListViewController: UIViewController, DismissibleViewController, UI
         self.searchBar.barTintColor = Design.selenium
         self.searchBar.returnKeyType = .`continue`
         self.searchBar.delegate = self
+        if let searchBarTextField = self.searchBar.value(forKey: "_searchBarTextField") as? UIView {
+            searchBarTextField.backgroundColor = Design.seleniumLight
+        }
+        
         self.contentView.layer.borderWidth = 1
         self.contentView.layer.borderColor = Design.selenium.cgColor
         self.contentView.layer.cornerRadius = 16

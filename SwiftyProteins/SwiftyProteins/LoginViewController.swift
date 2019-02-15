@@ -49,9 +49,7 @@ class LoginViewController: UIViewController {
         
         self.sceneView.scene = scene
         self.sceneView.backgroundColor = Design.backgroundColor
-        self.sceneView.delegate = scene
         self.sceneView.allowsCameraControl = true
-        // self.sceneView.isPlaying = true
         self.checkLoginButton()
     }
 
@@ -103,7 +101,6 @@ class LoginViewController: UIViewController {
             }
         })
     }
-    
 }
 
 protocol DismissibleViewController: AnyObject { func dismiss() }
