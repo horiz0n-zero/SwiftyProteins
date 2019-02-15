@@ -154,11 +154,6 @@ class SwiftyProteinsAlert: UIView {
         case .destructive(_, let block):
             block()
         }
-        for actionButton in self.actionViewContent {
-            actionButton.removeTarget(self, action: #selector(self.actionButtonSelected(sender:)), for: .touchUpInside)
-        }
-        self.contentViewContent.removeAll()
-        self.actionViewContent.removeAll()
         self.remove()
     }
     
@@ -197,6 +192,11 @@ extension SwiftyProteinsAlert {
     }
     
     func remove() {
+        for actionButton in self.actionViewContent {
+            actionButton.removeTarget(self, action: #selector(self.actionButtonSelected(sender:)), for: .touchUpInside)
+        }
+        self.contentViewContent.removeAll()
+        self.actionViewContent.removeAll()
         UIView.animate(withDuration: SwiftyProteinsAlert.animationDuration, delay: 0, options: SwiftyProteinsAlert.animationOptions, animations: {
             self.contentView.alpha = 0.0
             self.actionView.alpha = 0.0
