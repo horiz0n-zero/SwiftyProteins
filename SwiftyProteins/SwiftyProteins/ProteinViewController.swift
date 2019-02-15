@@ -67,6 +67,11 @@ class ProteinViewController: UIViewController, DismissibleViewController {
         super.touchesCancelled(touches, with: event)
         LoginViewController.shared.sceneView.touchesCancelled(touches, with: event)
     }*/
+    @IBAction func shareAction() {
+        let image = LoginViewController.shared.sceneView.snapshot()
+        let shareViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(shareViewController, animated: true, completion: nil)
+    }
     
     func dismiss() {
         LoginViewController.shared.proteinListVC?.unhideElements()

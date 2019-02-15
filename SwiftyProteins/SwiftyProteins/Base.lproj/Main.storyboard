@@ -126,6 +126,9 @@
                                                     <constraint firstAttribute="width" secondItem="dtp-ad-yfq" secondAttribute="height" multiplier="1:1" id="9kp-ih-mDH"/>
                                                 </constraints>
                                                 <state key="normal" image="share"/>
+                                                <connections>
+                                                    <action selector="shareAction" destination="L4Q-OS-X4e" eventType="touchUpInside" id="JAr-9J-PCH"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xel-kH-42y">
                                                 <rect key="frame" x="124.5" y="21" width="42.5" height="42"/>
