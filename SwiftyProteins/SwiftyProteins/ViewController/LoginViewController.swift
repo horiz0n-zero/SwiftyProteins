@@ -16,6 +16,10 @@ class LoginViewController: UIViewController {
         return true
     }
     
+    override func prefersHomeIndicatorAutoHidden() -> Bool {
+        return true
+    }
+    
     @IBOutlet var sceneView: SCNView!
     
     @IBOutlet var loginButton: UIButton!
@@ -38,11 +42,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LoginViewController.shared = self
-        
-        self.loginButton.layer.cornerRadius = self.loginButton.frame.height / 2
-        self.loginButton.layer.borderColor = Design.black.cgColor
-        self.loginButton.layer.borderWidth = 2
-        self.loginButton.setTitleColor(Design.black, for: .normal)
+
+        self.loginButton.layer.cornerRadius = 5
         
         let scene = Scene()
         
