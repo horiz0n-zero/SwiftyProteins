@@ -39,7 +39,6 @@ class Scene: SCNScene {
     override init() {
         super.init()
         Scene.shared = self
-        
         self.camera = SCNCamera.init()
         self.node = SCNNode.init()
         self.light = SCNLight.init()

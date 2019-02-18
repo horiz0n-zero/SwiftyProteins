@@ -46,6 +46,7 @@ class LoginViewController: UIViewController {
         
         let scene = Scene()
         
+        
         self.sceneView.scene = scene
         self.sceneView.backgroundColor = Design.backgroundColor
         self.sceneView.allowsCameraControl = true
