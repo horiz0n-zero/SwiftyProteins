@@ -14,16 +14,17 @@ class SwiftyProteinsAlert: UIView {
     static let margin: CGFloat = 32
     
     static let actionHeight: CGFloat = 50
-    static let actionSpacing: CGFloat = 8
+    static let actionSpacing: CGFloat = 4
     
     static let labelCalcRect: CGRect = {
         return CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width - (SwiftyProteinsAlert.margin * 2 + Content.margin * 2), height: CGFloat.greatestFiniteMagnitude)
     }()
     
-    static let cornerRadius: CGFloat = 9
+    static let cornerRadius: CGFloat = 4
     static let borderWidth: CGFloat = 1
-    static let borderColor: CGColor = Design.redSelenium.cgColor
-    static let background = Design.grey.withAlphaComponent(0.6)
+    static let borderColor: CGColor = Design.selenium.cgColor
+    static let background = Design.seleniumLight
+    static let blurEffectStyle: UIBlurEffectStyle = .extraLight
     
     enum Content {
         case bigTitle(String)
@@ -45,7 +46,7 @@ class SwiftyProteinsAlert: UIView {
             }
         }
         static let verticalDistance: CGFloat = 16
-        static let margin: CGFloat = 8
+        static let margin: CGFloat = 16
     }
     enum Action {
         case destructive(String, () -> ())
@@ -56,7 +57,7 @@ class SwiftyProteinsAlert: UIView {
             case .`default`(let text, _):
                 let attr = NSMutableAttributedString.init(string: text)
                 
-                attr.addAttributes([.foregroundColor: Design.black, .font: UIFont.systemFont(ofSize: 21, weight: .regular)], range: NSMakeRange(0, text.count))
+                attr.addAttributes([.foregroundColor: Design.black, .font: UIFont.systemFont(ofSize: 21, weight: .semibold)], range: NSMakeRange(0, text.count))
                 button.setAttributedTitle(attr, for: .normal)
             case .destructive(let text, _):
                 let attr = NSMutableAttributedString.init(string: text)
@@ -187,7 +188,7 @@ extension SwiftyProteinsAlert {
         UIView.animate(withDuration: SwiftyProteinsAlert.animationDuration, delay: 0, options: SwiftyProteinsAlert.animationOptions, animations: {
             self.contentView.alpha = 1.0
             self.actionView.alpha = 1.0
-            self.blurEffet.effect = UIBlurEffect.init(style: UIBlurEffectStyle.regular)
+            self.blurEffet.effect = UIBlurEffect.init(style: SwiftyProteinsAlert.blurEffectStyle)
         })
     }
     

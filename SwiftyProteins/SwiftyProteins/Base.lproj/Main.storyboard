@@ -222,10 +222,30 @@
                                             <constraint firstItem="O0N-SP-gHV" firstAttribute="centerX" secondItem="Kmd-Id-vsx" secondAttribute="centerX" id="jRK-K0-VE1"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDb-do-RfN">
+                                        <rect key="frame" x="341" y="620.33333333333337" width="26" height="53.333333333333371"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ae-Vt-VVp">
+                                                <rect key="frame" x="13.333333333333314" y="27" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.74602915599957864" blue="0.69385911312892823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="9Ae-Vt-VVp" firstAttribute="centerX" secondItem="TDb-do-RfN" secondAttribute="centerX" id="NO0-m6-0Cg"/>
+                                            <constraint firstItem="9Ae-Vt-VVp" firstAttribute="centerY" secondItem="TDb-do-RfN" secondAttribute="centerY" id="Xe1-e4-YPy"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="TDb-do-RfN" secondAttribute="trailing" constant="8" id="0zf-ca-vET"/>
                                     <constraint firstAttribute="bottom" secondItem="Kmd-Id-vsx" secondAttribute="bottom" constant="16" id="SVB-TQ-Us8"/>
+                                    <constraint firstItem="TDb-do-RfN" firstAttribute="centerY" secondItem="Kmd-Id-vsx" secondAttribute="centerY" id="Tee-jz-2Pb"/>
+                                    <constraint firstItem="TDb-do-RfN" firstAttribute="height" secondItem="Kmd-Id-vsx" secondAttribute="height" id="h3l-Fh-TC6"/>
+                                    <constraint firstItem="TDb-do-RfN" firstAttribute="leading" secondItem="Kmd-Id-vsx" secondAttribute="trailing" constant="8" id="ifg-4L-yik"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -246,7 +266,10 @@
                         <viewLayoutGuide key="safeArea" id="gcg-mp-h4K"/>
                     </view>
                     <connections>
+                        <outlet property="atomExtensionView" destination="TDb-do-RfN" id="XvY-8v-Dbs"/>
+                        <outlet property="atomExtensionViewLabel" destination="9Ae-Vt-VVp" id="Yd3-aC-taA"/>
                         <outlet property="atomView" destination="Kmd-Id-vsx" id="Lt7-E9-Iz7"/>
+                        <outlet property="atomViewCentering" destination="85T-IT-WOW" id="MQe-fF-vMp"/>
                         <outlet property="atomViewLabel" destination="O0N-SP-gHV" id="rPJ-Wj-Oyq"/>
                         <outlet property="bottomView" destination="mLQ-fU-F6H" id="9SD-nE-i59"/>
                         <outlet property="proteinContentView" destination="EOE-Ro-RbL" id="Qga-Pr-Ia0"/>
