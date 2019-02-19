@@ -135,6 +135,7 @@ class ProteinViewController: UIViewController, DismissibleViewController {
                             UIView.animate(withDuration: atomViewDuration, delay: 0, options: [.curveEaseOut], animations: {
                                 self.atomViewCentering.constant = -atomExtensionLabelRect.width
                                 self.atomExtensionView.layer.cornerRadius = self.atomExtensionView.bounds.height / 2
+                                self.atomView.layer.cornerRadius = self.atomView.bounds.height / 2
                                 self.view.layoutIfNeeded()
                             }, completion: nil)
                         }
