@@ -13,15 +13,6 @@
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeueExtras.ttc">
-            <string>HelveticaNeue-CondensedBold</string>
-        </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Thin</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -35,14 +26,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </sceneKitView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P R O T E I N S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7C-YW-oeb">
-                                <rect key="frame" x="40" y="34" width="95" height="20"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                                <rect key="frame" x="40" y="34" width="113.5" height="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsO-UX-7Ob">
-                                <rect key="frame" x="40" y="226" width="82.5" height="48"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="40"/>
+                                <rect key="frame" x="40" y="227" width="81.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -53,7 +44,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jE-5l-Pxx">
                                 <rect key="frame" x="40" y="527" width="240" height="34"/>
                                 <color key="backgroundColor" red="0.63137254901960782" green="0.16862745098039217" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -69,7 +60,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EJZ-NT-T7s" secondAttribute="trailing" id="3Tq-sg-iGg"/>
                             <constraint firstAttribute="bottom" secondItem="EJZ-NT-T7s" secondAttribute="bottom" id="5H8-Q3-A2O"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VsO-UX-7Ob" secondAttribute="trailing" constant="20" symbolic="YES" id="AQS-dT-vWD"/>
-                            <constraint firstItem="FWk-TR-K4l" firstAttribute="firstBaseline" secondItem="VsO-UX-7Ob" secondAttribute="baseline" constant="26.666666666666668" symbolType="layoutAnchor" id="HSj-KP-cx1"/>
+                            <constraint firstItem="FWk-TR-K4l" firstAttribute="firstBaseline" secondItem="VsO-UX-7Ob" secondAttribute="baseline" constant="27" symbolType="layoutAnchor" id="HSj-KP-cx1"/>
                             <constraint firstItem="EJZ-NT-T7s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HjX-q8-dU2"/>
                             <constraint firstItem="FWk-TR-K4l" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="K18-mk-Wo1"/>
                             <constraint firstItem="VsO-UX-7Ob" firstAttribute="leading" secondItem="FWk-TR-K4l" secondAttribute="leading" id="Kxr-aC-grC"/>
@@ -207,13 +198,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOE-Ro-RbL" customClass="SCNView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="690.33333333333337"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="483"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kmd-Id-vsx">
-                                        <rect key="frame" x="279.66666666666669" y="621" width="53.333333333333314" height="53.333333333333371"/>
+                                        <rect key="frame" x="243" y="432" width="35" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0N-SP-gHV">
-                                                <rect key="frame" x="26.666666666666629" y="26.666666666666629" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="17.5" y="17.5" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -226,10 +217,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDb-do-RfN">
-                                        <rect key="frame" x="341" y="620.33333333333337" width="26" height="53.333333333333371"/>
+                                        <rect key="frame" x="286" y="431.5" width="26" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ae-Vt-VVp">
-                                                <rect key="frame" x="13.333333333333314" y="27" width="0.0" height="0.0"/>
+                                                <rect key="frame" x="13.5" y="17.5" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
