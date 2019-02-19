@@ -11,7 +11,10 @@ import SceneKit
 import LocalAuthentication
 
 class LoginViewController: UIViewController {
-
+    @IBOutlet weak var proteinsLabel: UILabel!
+    @IBOutlet weak var helloLabel: UILabel!
+    @IBOutlet weak var barView: UIView!
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -74,7 +77,11 @@ class LoginViewController: UIViewController {
         
         vc.modalPresentationStyle = .overCurrentContext
         self.proteinListVC = vc
-        self.loginButton.isHidden = true
+        proteinsLabel.isHidden = true
+        helloLabel.isHidden = true
+        barView.isHidden = true
+        loginButton.isHidden = true
+        
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -82,11 +89,17 @@ class LoginViewController: UIViewController {
         var error: NSError? = nil
         
         if self.loginContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            self.loginButton.isHidden = false
+            proteinsLabel.isHidden = false
+            helloLabel.isHidden = false
+            barView.isHidden = false
+            loginButton.isHidden = false
             return true
         }
         else {
-            self.loginButton.isHidden = true
+            proteinsLabel.isHidden = true
+            helloLabel.isHidden = true
+            barView.isHidden = true
+            loginButton.isHidden = true
             return false
         }
     }

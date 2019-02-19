@@ -34,8 +34,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made with ♡ by afeuerst and alansiva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWi-Wr-DyY">
-                                <rect key="frame" x="81" y="746.33333333333337" width="213" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made with ♥︎ by afeuerst and alansiva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWi-Wr-DyY">
+                                <rect key="frame" x="81.333333333333314" y="746.33333333333337" width="213" height="16"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                             <constraint firstItem="kWi-Wr-DyY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qas-nS-S61"/>
                             <constraint firstItem="Ko4-0s-zc8" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="Y04-0P-8PO"/>
                             <constraint firstItem="Ko4-0s-zc8" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="c85-XF-0h3"/>
-                            <constraint firstItem="bqX-1O-5Zn" firstAttribute="firstBaseline" secondItem="kWi-Wr-DyY" secondAttribute="baseline" constant="20" symbolType="layoutAnchor" id="fNk-cB-Pe4"/>
+                            <constraint firstItem="bqX-1O-5Zn" firstAttribute="firstBaseline" secondItem="kWi-Wr-DyY" secondAttribute="baseline" constant="16" symbolType="layoutAnchor" id="fNk-cB-Pe4"/>
                             <constraint firstItem="bqX-1O-5Zn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fTq-wF-NOd"/>
                             <constraint firstItem="Ko4-0s-zc8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rAd-om-qwm"/>
                         </constraints>
