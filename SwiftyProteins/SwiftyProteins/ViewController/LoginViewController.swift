@@ -11,9 +11,8 @@ import SceneKit
 import LocalAuthentication
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var proteinsLabel: UILabel!
-    @IBOutlet weak var helloLabel: UILabel!
-    @IBOutlet weak var barView: UIView!
+    @IBOutlet weak var proteinsImage: UIImageView!
+    @IBOutlet weak var proteinsImageVerticalConstraint: NSLayoutConstraint!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -74,10 +73,8 @@ class LoginViewController: UIViewController {
         
         vc.modalPresentationStyle = .overCurrentContext
         self.proteinListVC = vc
-        proteinsLabel.isHidden = true
-        helloLabel.isHidden = true
-        barView.isHidden = true
         loginButton.isHidden = true
+        self.proteinsImage.isHidden = true
         
         self.present(vc, animated: true, completion: nil)
     }
@@ -86,16 +83,12 @@ class LoginViewController: UIViewController {
         var error: NSError? = nil
         
         if self.loginContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            proteinsLabel.isHidden = false
-            helloLabel.isHidden = false
-            barView.isHidden = false
             loginButton.isHidden = false
+            self.proteinsImage.isHidden = false
             return true
         }
         else {
-            proteinsLabel.isHidden = true
-            helloLabel.isHidden = true
-            barView.isHidden = true
+            self.proteinsImage.isHidden = true
             loginButton.isHidden = true
             return false
         }
@@ -111,6 +104,14 @@ class LoginViewController: UIViewController {
                 }
             }
         })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.proteinsImageVerticalConstraint.constant = -self.view.bounds.height / 4
+        UIView.animate(withDuration: 1.5, delay: 0, options: [.curveEaseOut], animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 }
 
