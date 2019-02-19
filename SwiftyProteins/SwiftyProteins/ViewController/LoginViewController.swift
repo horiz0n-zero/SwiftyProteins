@@ -47,18 +47,15 @@ class LoginViewController: UIViewController {
         LoginViewController.shared = self
 
         self.loginButton.layer.cornerRadius = 5
-        
         let scene = Scene()
         
         self.sceneView.scene = scene
         self.sceneView.backgroundColor = Design.backgroundColor
-        self.sceneView.allowsCameraControl = true
-        self.sceneView.delegate = scene
         self.checkLoginButton()
+        SceneProteins.shared = SceneProteins.init()
     }
 
     func dismissChildsVC() {
-        
         if let protein = self.proteinVC {
             protein.dismiss()
             protein.dismiss(animated: true, completion: nil)

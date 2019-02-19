@@ -72,6 +72,7 @@ class ProteinListViewController: UIViewController, DismissibleViewController, UI
                     vc.content = content
                     vc.ligand = ligand
                     LoginViewController.shared.proteinVC = vc
+                    LoginViewController.shared.sceneView.pause(nil)
                     self.hideElements()
                     self.present(vc, animated: true, completion: nil)
                 }

@@ -22,6 +22,12 @@ public struct Design {
     static let grey = UIColor.init(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
     static let black = UIColor.init(red: 56/255, green: 55/255, blue: 54/255, alpha: 1)
     
+    static func getAtomFullName(atom: String) -> String {
+        let sources = ["hydrogene", "carbone", "selenium", "sulfure"]
+        let index = Int(arc4random_uniform(UInt32(sources.count)))
+        
+        return sources[index]
+    }
     static func getPCK(atom: String) -> UIColor? {
         if let colors = Design.pckColors[atom] {
             return UIColor.init(red: colors[0] / 255, green: colors[1] / 255, blue: colors[2] / 255, alpha: 1)

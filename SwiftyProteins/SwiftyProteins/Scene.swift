@@ -9,6 +9,23 @@
 import Foundation
 import SceneKit
 
+class SceneProteins: SCNScene {
+    
+    static var shared: SceneProteins! = nil
+    
+    // molecule.Mode
+    var atoms: [SCNNode] = []
+    var connections: [SCNNode] = []
+    
+    
+    override init() {
+        super.init()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 class Scene: SCNScene {
     
     static var shared: Scene!
@@ -17,29 +34,9 @@ class Scene: SCNScene {
     var light: SCNLight!
     var node: SCNNode!
     
-    enum Mode {
-        case background
-        case molecule
-    }
-    var mode: Scene.Mode = .background {
-        didSet {
-            if oldValue != self.mode {
-                switch self.mode {
-                case .background:
-                    self.deinitialiseMoleculeMode()
-                    self.initialiseBackgroundMode()
-                case .molecule:
-                    self.deinitialiseBackgroundMode()
-                    self.initialiseMoleculeMode()
-                }
-            }
-        }
-    }
-    
     override init() {
         super.init()
         Scene.shared = self
-        
         self.camera = SCNCamera.init()
         self.node = SCNNode.init()
         self.light = SCNLight.init()
@@ -61,10 +58,6 @@ class Scene: SCNScene {
     // background.Mode
     var boxContainers: [SCNNode] = []
     var spheres: [SCNNode] = []
-    
-    // molecule.Mode
-    var atoms: [SCNNode] = []
-    var connections: [SCNNode] = []
 }
 
 fileprivate let distanceBackgroundSquare: CGFloat = 5
@@ -160,7 +153,7 @@ extension Scene: SCNPhysicsContactDelegate { // background.Mode
 fileprivate let atomRadius: CGFloat = 0.05
 fileprivate let connectionRadius: CGFloat = 0.025
 fileprivate let scalePosition: Float = 0.10
-extension Scene { // molecule.Mode
+extension SceneProteins { // molecule.Mode
     
     func initialiseMoleculeMode() {
         func getAtome(from atom: Protein.Atom) -> SCNNode {
@@ -194,7 +187,6 @@ extension Scene { // molecule.Mode
             return node
         }
         
-        self.light.color = UIColor.white
         if let protein = LoginViewController.shared.proteinVC?.protein {
             for atom in protein.atoms {
                 let node = getAtome(from: atom)
@@ -214,7 +206,6 @@ extension Scene { // molecule.Mode
     }
     
     func deinitialiseMoleculeMode() {
-        self.light.color = Design.redSelenium
         for atom in self.atoms {
             atom.removeFromParentNode()
         }
@@ -224,14 +215,6 @@ extension Scene { // molecule.Mode
         self.connections.removeAll()
         self.atoms.removeAll()
     }
-}
-
-extension Scene: SCNSceneRendererDelegate {
-    
-    func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
-        glLineWidth(40)
-    }
-    
 }
 
 func *(lhs: SCNVector3, rhs: Float) -> SCNVector3 {

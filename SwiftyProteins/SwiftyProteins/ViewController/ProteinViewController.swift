@@ -18,11 +18,23 @@ class ProteinViewController: UIViewController, DismissibleViewController {
     
     @IBOutlet var bottomView: UIView!
     @IBOutlet var bottomButtons: [UIButton]!
+    @IBOutlet var proteinContentView: SCNView!
     
-    //@IBOutlet var settingsView: UIView!
-  
+    @IBOutlet var atomView: UIView!
+    @IBOutlet var atomViewLabel: UILabel!
+    @IBOutlet var atomViewCentering: NSLayoutConstraint!
+    
+    @IBOutlet var atomExtensionView: UIView!
+    @IBOutlet var atomExtensionViewLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.atomView.layer.cornerRadius = self.atomView.bounds.height / 2
+        self.atomView.backgroundColor = Design.selenium
+        self.atomView.alpha = 0.0
+        self.atomExtensionView.layer.cornerRadius = self.atomExtensionView.bounds.height / 2
+        self.atomExtensionView.backgroundColor = Design.selenium
+        self.atomExtensionView.alpha = 0.0
         for button in self.bottomButtons {
             if let image = button.imageView?.image {
                 let template = image.withRenderingMode(.alwaysTemplate)
@@ -32,17 +44,20 @@ class ProteinViewController: UIViewController, DismissibleViewController {
             }
         }
         self.bottomView.backgroundColor = Design.selenium
-        //self.settingsView.backgroundColor = UIColor.clear
         
         self.protein = Protein.init(content: self.content)
-        print(self.ligand)
-        for atom in self.protein.atoms {
-            print(atom)
+        if let sceneProtein = SceneProteins.shared {
+            self.proteinContentView.backgroundColor = Design.seleniumLight
+            self.proteinContentView.scene = sceneProtein
+            self.proteinContentView.allowsCameraControl = true
+            self.proteinContentView.antialiasingMode = .multisampling4X
+            sceneProtein.initialiseMoleculeMode()
         }
-        for conect in self.protein.connections {
-            print(conect)
+        else {
+            let alert = SwiftyProteinsAlert.init(contents: [.bigTitle("Error"), .content("unknow error occured.")], actions: [.destructive("OK", { self.deleteAction(self.bottomButtons[1]) })])
+            
+            alert.present(in: self.view)
         }
-        Scene.shared.mode = .molecule
     }
     
     @IBAction func deleteAction(_ sender: UIButton) {
@@ -51,33 +66,89 @@ class ProteinViewController: UIViewController, DismissibleViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        LoginViewController.shared.sceneView.touchesBegan(touches, with: event)
-    }
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesMoved(touches, with: event)
-        LoginViewController.shared.sceneView.touchesMoved(touches, with: event)
-    }
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        LoginViewController.shared.sceneView.touchesEnded(touches, with: event)
-    }
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesCancelled(touches, with: event)
-        LoginViewController.shared.sceneView.touchesCancelled(touches, with: event)
-    }*/
+    
     @IBAction func shareAction() {
-        let image = LoginViewController.shared.sceneView.snapshot()
+        //blet alert = SwiftyProteinsAlert.init(contents: [.title("Please wait ...")], actions: [])
+        
+        //alert.present(in: self.view)
+        let image = self.proteinContentView.snapshot()
         let shareViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
-        present(shareViewController, animated: true, completion: nil)
+        present(shareViewController, animated: true, completion: nil)//{
+            //alert.remove()
+        //})
     }
     
     func dismiss() {
         LoginViewController.shared.proteinListVC?.unhideElements()
-        Scene.shared.mode = .background
+        LoginViewController.shared.sceneView.play(nil)
+        (self.proteinContentView.scene as? SceneProteins)?.deinitialiseMoleculeMode()
     }
+    
+    var selection: Bool = false
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.count == 1 {
+            self.selection = true
+        }
+    }
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.selection = false
+    }
+    fileprivate let atomViewDuration: TimeInterval = 0.3
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.count == 1, self.selection, let touch = touches.first {
+            let location = touch.location(in: self.view)
+            
+            if self.proteinContentView.point(inside: location, with: event) {
+                for result in self.proteinContentView.hitTest(location, options: nil) {
+                    if let atom = result.node.name {
+                        func transition(label: UILabel, text: String) {
+                            let anim = CATransition.init()
+                            
+                            anim.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseOut)
+                            anim.type = kCATransitionFade
+                            anim.duration = atomViewDuration
+                            label.layer.add(anim, forKey: kCATransitionFade)
+                            label.text = text
+                        }
+                        func appear(on: UIView) {
+                            UIView.animate(withDuration: atomViewDuration, delay: 0, options: [UIViewAnimationOptions.curveEaseOut], animations: {
+                                on.alpha = 1.0
+                            }, completion: nil)
+                        }
+                        
+                        if self.atomView.alpha == 0.0 {
+                            appear(on: self.atomView)
+                        }
+                        if self.atomViewLabel.text != atom {
+                            transition(label: self.atomViewLabel, text: atom)
+                        }
+                        if self.atomExtensionView.alpha == 0.0 {
+                            appear(on: self.atomExtensionView)
+                        }
+                        let atomFullName = Design.getAtomFullName(atom: atom)
+                        
+                        if self.atomExtensionViewLabel.text != atomFullName {
+                            transition(label: self.atomExtensionViewLabel, text: atomFullName)
+                            let atomExtensionLabelRect = self.atomExtensionViewLabel.textRect(forBounds: CGRect.init(origin: .zero, size: .init(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)), limitedToNumberOfLines: 0)
+                            
+                            UIView.animate(withDuration: atomViewDuration, delay: 0, options: [.curveEaseOut], animations: {
+                                self.atomViewCentering.constant = -atomExtensionLabelRect.width
+                                self.atomExtensionView.layer.cornerRadius = self.atomExtensionView.bounds.height / 2
+                                self.view.layoutIfNeeded()
+                            }, completion: nil)
+                        }
+                        break
+                    }
+                }
+            }
+            self.selection = false
+        }
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.selection = false
+    }
+    
 }
 
 struct Protein {
