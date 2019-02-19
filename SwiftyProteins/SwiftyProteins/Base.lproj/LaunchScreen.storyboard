@@ -24,14 +24,14 @@
                                 <rect key="frame" x="93.999999999999986" y="5" width="187.66666666666663" height="812"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color credit : Selenium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqX-1O-5Zn">
-                                <rect key="frame" x="91.999999999999986" y="747" width="192.66666666666663" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <rect key="frame" x="101.00000000000001" y="749.66666666666663" width="173.33333333333337" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made with ♡ by afeuerst and alansiva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWi-Wr-DyY">
-                                <rect key="frame" x="28" y="723" width="320.66666666666669" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made with ♥︎ by afeuerst and alansiva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWi-Wr-DyY">
+                                <rect key="frame" x="44.333333333333343" y="725.66666666666663" width="288.33333333333326" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -43,7 +43,7 @@
                             <constraint firstItem="kWi-Wr-DyY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qas-nS-S61"/>
                             <constraint firstItem="Ko4-0s-zc8" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="Y04-0P-8PO"/>
                             <constraint firstItem="Ko4-0s-zc8" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="c85-XF-0h3"/>
-                            <constraint firstItem="bqX-1O-5Zn" firstAttribute="firstBaseline" secondItem="kWi-Wr-DyY" secondAttribute="baseline" constant="16" symbolType="layoutAnchor" id="fNk-cB-Pe4"/>
+                            <constraint firstItem="bqX-1O-5Zn" firstAttribute="firstBaseline" secondItem="kWi-Wr-DyY" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="fNk-cB-Pe4"/>
                             <constraint firstItem="bqX-1O-5Zn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fTq-wF-NOd"/>
                             <constraint firstItem="Ko4-0s-zc8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rAd-om-qwm"/>
                         </constraints>
