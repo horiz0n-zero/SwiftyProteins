@@ -39,8 +39,8 @@
                                 <color key="backgroundColor" red="0.63137254901960782" green="0.16862745098039217" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jE-5l-Pxx">
-                                <rect key="frame" x="51.666666666666657" y="677.33333333333337" width="310.66666666666674" height="44"/>
-                                <color key="backgroundColor" red="0.63137254901960782" green="0.16862745098039217" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="40" y="424" width="240" height="34"/>
+                                <color key="backgroundColor" red="0.63137254901960782" green="0.16862745098039217" blue="0.18431372549019609" alpha="0.75" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

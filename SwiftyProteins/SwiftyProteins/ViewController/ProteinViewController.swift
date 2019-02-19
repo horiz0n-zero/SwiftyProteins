@@ -68,15 +68,13 @@ class ProteinViewController: UIViewController, DismissibleViewController {
     
     
     @IBAction func shareAction() {
-        //blet alert = SwiftyProteinsAlert.init(contents: [.title("Please wait ...")], actions: [])
-        
-        //alert.present(in: self.view)
         let image = self.proteinContentView.snapshot()
         let shareViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
-        present(shareViewController, animated: true, completion: nil)//{
-            //alert.remove()
-        //})
+        present(shareViewController, animated: true, completion: nil)
+        if let pop = shareViewController.popoverPresentationController {
+            pop.sourceView = self.view
+        }
     }
     
     func dismiss() {
