@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.43"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,32 +18,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="atom" translatesAutoresizingMaskIntoConstraints="NO" id="Ko4-0s-zc8">
-                                <rect key="frame" x="93.999999999999986" y="5" width="187.66666666666663" height="812"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color credit : Selenium" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqX-1O-5Zn">
-                                <rect key="frame" x="101.00000000000001" y="749.66666666666663" width="173.33333333333337" height="20.333333333333371"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="97" y="749.66666666666663" width="181" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.21568627450980393" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made with ♥︎ by afeuerst and alansiva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWi-Wr-DyY">
-                                <rect key="frame" x="44.333333333333343" y="725.66666666666663" width="288.33333333333326" height="20.333333333333371"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="39" y="725.66666666666663" width="297" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.2196078431372549" green="0.21568627450980393" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                                </variation>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bande1" translatesAutoresizingMaskIntoConstraints="NO" id="Cy0-WK-aKt">
+                                <rect key="frame" x="32" y="261" width="311" height="300"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99607843137254903" green="0.84705882352941175" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bqX-1O-5Zn" secondAttribute="bottom" constant="8" id="BL3-n4-9t4"/>
-                            <constraint firstItem="Ko4-0s-zc8" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="LsF-Jg-uD1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bqX-1O-5Zn" secondAttribute="bottom" constant="8" id="BL3-n4-9t4">
+                                <variation key="heightClass=regular-widthClass=regular" constant="32"/>
+                            </constraint>
+                            <constraint firstItem="Cy0-WK-aKt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HQS-9u-Sie"/>
                             <constraint firstItem="kWi-Wr-DyY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qas-nS-S61"/>
-                            <constraint firstItem="Ko4-0s-zc8" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="Y04-0P-8PO"/>
-                            <constraint firstItem="Ko4-0s-zc8" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="c85-XF-0h3"/>
+                            <constraint firstItem="Cy0-WK-aKt" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="dFW-GR-Cwb"/>
                             <constraint firstItem="bqX-1O-5Zn" firstAttribute="firstBaseline" secondItem="kWi-Wr-DyY" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="fNk-cB-Pe4"/>
                             <constraint firstItem="bqX-1O-5Zn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fTq-wF-NOd"/>
-                            <constraint firstItem="Ko4-0s-zc8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rAd-om-qwm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cy0-WK-aKt" secondAttribute="trailing" constant="32" id="fVY-6I-ZMh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -56,6 +61,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="atom" width="2022" height="921"/>
+        <image name="bande1" width="700" height="300"/>
     </resources>
 </document>
