@@ -35,3 +35,5 @@
 > En cliquant sur un atome vous devez afficher le type d’atome (C, H, O, etc.) • On doit pouvoir partagez votre modélisation à travers un boutton ‘Share‘
 
 > Vous doit pouvoir jouer (zoom, rotation...) avec le ligand dans Scène Kit
+
+
