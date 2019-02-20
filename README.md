@@ -51,5 +51,5 @@
 	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/5.png" width="30%" /> 
 </div>
 <div align="center">
-	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/7.png" width="30%" />
+	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/7.png" width="90%" />
 </div>
