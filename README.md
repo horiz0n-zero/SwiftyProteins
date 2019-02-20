@@ -53,3 +53,10 @@
 <div align="center">
 	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/7.png" width="90%" />
 </div>
+
+### Bonus :
+1. fond dynamique (Login & ProteinList)
+2. custom Keyboard
+3. affichage des molecules dans la liste
+4. custom Alert
+5. systeme de sauvergarde des fichiers .pdb & .gif, mise en cache et sauvergarde avec indicateur d'etat
