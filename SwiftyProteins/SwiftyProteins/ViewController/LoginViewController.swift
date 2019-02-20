@@ -45,7 +45,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         LoginViewController.shared = self
 
-        self.loginButton.layer.cornerRadius = 5
+        self.loginButton.layer.cornerRadius = 8
+        self.loginButton.layer.borderWidth = 3
+        self.loginButton.layer.borderColor = Design.selenium.cgColor
+        self.loginButton.backgroundColor = Design.redSelenium.withAlphaComponent(0.9)
+        self.loginButton.setTitleColor(Design.black, for: .normal)
         let scene = Scene()
         
         self.sceneView.scene = scene

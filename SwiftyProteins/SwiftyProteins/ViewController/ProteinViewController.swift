@@ -133,7 +133,7 @@ class ProteinViewController: UIViewController, DismissibleViewController {
                             let atomExtensionLabelRect = self.atomExtensionViewLabel.textRect(forBounds: CGRect.init(origin: .zero, size: .init(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)), limitedToNumberOfLines: 0)
                             
                             UIView.animate(withDuration: atomViewDuration, delay: 0, options: [.curveEaseOut], animations: {
-                                self.atomViewCentering.constant = -atomExtensionLabelRect.width
+                                self.atomViewCentering.constant = atomExtensionLabelRect.width + 50
                                 self.atomExtensionView.layer.cornerRadius = self.atomExtensionView.bounds.height / 2
                                 self.atomView.layer.cornerRadius = self.atomView.bounds.height / 2
                                 self.view.layoutIfNeeded()

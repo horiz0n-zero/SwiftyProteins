@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.43"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,10 +25,13 @@
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jE-5l-Pxx">
                                 <rect key="frame" x="51.666666666666657" y="545" width="310.66666666666674" height="44"/>
                                 <color key="backgroundColor" red="0.63137254901960782" green="0.16862745098039217" blue="0.18431372549019609" alpha="0.75" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                </variation>
                                 <connections>
                                     <action selector="loginButtonTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xqd-Jn-5Rt"/>
                                 </connections>
@@ -174,7 +176,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="625.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kmd-Id-vsx">
-                                        <rect key="frame" x="286.66666666666669" y="562.33333333333337" width="47.333333333333314" height="47.333333333333371"/>
+                                        <rect key="frame" x="342.66666666666669" y="562.33333333333337" width="47.333333333333314" height="47.333333333333371"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0N-SP-gHV">
                                                 <rect key="frame" x="23.666666666666629" y="23.666666666666629" width="0.0" height="0.0"/>
@@ -193,10 +195,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDb-do-RfN">
-                                        <rect key="frame" x="342" y="562.33333333333337" width="64" height="47.333333333333371"/>
+                                        <rect key="frame" x="398" y="562.33333333333337" width="8" height="47.333333333333371"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ae-Vt-VVp">
-                                                <rect key="frame" x="32" y="23.666666666666629" width="0.0" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ae-Vt-VVp">
+                                                <rect key="frame" x="4" y="23.666666666666629" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -219,13 +221,13 @@
                                     <constraint firstItem="TDb-do-RfN" firstAttribute="centerY" secondItem="Kmd-Id-vsx" secondAttribute="centerY" id="Tee-jz-2Pb"/>
                                     <constraint firstItem="TDb-do-RfN" firstAttribute="height" secondItem="Kmd-Id-vsx" secondAttribute="height" id="h3l-Fh-TC6"/>
                                     <constraint firstItem="TDb-do-RfN" firstAttribute="leading" secondItem="Kmd-Id-vsx" secondAttribute="trailing" constant="8" id="ifg-4L-yik"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kmd-Id-vsx" secondAttribute="trailing" constant="24" id="tcq-LS-ttr"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Kmd-Id-vsx" firstAttribute="height" secondItem="77k-Te-TB5" secondAttribute="height" id="3m1-3E-OGe"/>
-                            <constraint firstItem="Kmd-Id-vsx" firstAttribute="centerX" secondItem="77k-Te-TB5" secondAttribute="centerX" id="85T-IT-WOW"/>
                             <constraint firstItem="EOE-Ro-RbL" firstAttribute="top" secondItem="ZHD-tB-bfg" secondAttribute="top" id="DOz-7m-7cH"/>
                             <constraint firstItem="gcg-mp-h4K" firstAttribute="trailing" secondItem="mLQ-fU-F6H" secondAttribute="trailing" id="EeU-LR-meP"/>
                             <constraint firstItem="EOE-Ro-RbL" firstAttribute="leading" secondItem="gcg-mp-h4K" secondAttribute="leading" id="Oos-Yy-HfS"/>
@@ -242,7 +244,7 @@
                         <outlet property="atomExtensionView" destination="TDb-do-RfN" id="XvY-8v-Dbs"/>
                         <outlet property="atomExtensionViewLabel" destination="9Ae-Vt-VVp" id="Yd3-aC-taA"/>
                         <outlet property="atomView" destination="Kmd-Id-vsx" id="Lt7-E9-Iz7"/>
-                        <outlet property="atomViewCentering" destination="85T-IT-WOW" id="MQe-fF-vMp"/>
+                        <outlet property="atomViewCentering" destination="tcq-LS-ttr" id="weA-1e-XgG"/>
                         <outlet property="atomViewLabel" destination="O0N-SP-gHV" id="rPJ-Wj-Oyq"/>
                         <outlet property="bottomView" destination="mLQ-fU-F6H" id="9SD-nE-i59"/>
                         <outlet property="proteinContentView" destination="EOE-Ro-RbL" id="Qga-Pr-Ia0"/>
