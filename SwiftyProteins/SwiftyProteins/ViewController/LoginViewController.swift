@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var sceneView: SCNView!
     
     @IBOutlet var loginButton: UIButton!
-    let loginContext: LAContext = LAContext.init()
+    var loginContext: LAContext = LAContext.init()
     @IBAction func loginButtonTapped(sender: UIButton) {
         self.tryLogin(success: {
             self.showProteinList()
@@ -102,6 +102,7 @@ class LoginViewController: UIViewController {
                 else {
                     failure()
                 }
+                self.loginContext = LAContext.init()
             }
         })
     }
@@ -109,7 +110,7 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.proteinsImageVerticalConstraint.constant = -self.view.bounds.height / 4
-        UIView.animate(withDuration: 1.5, delay: 0, options: [.curveEaseOut], animations: {
+        UIView.animate(withDuration: 1.25, delay: 0, options: [.curveEaseOut], animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
