@@ -45,3 +45,11 @@
 	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/3.png" width="45%" />
 	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/6.png" width="45%" /> 
 </div>
+<div align="center">
+	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/2.png" width="30%" />
+	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/4.png" width="30%" /> 
+	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/5.png" width="30%" /> 
+</div>
+<div align="center">
+	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/7.png" width="30%" />
+</div>
