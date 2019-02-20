@@ -31,12 +31,21 @@ class ProteinTableViewCell: UITableViewCell {
         manager.proteinFile(ligand: ligand, success: { forLigand, data in
             DispatchQueue.main.async {
                 if forLigand == self.ligand {
+                    self.ligandDownloadProgress.tintColor = Design.selenium
                     self.ligandDownloadProgress.progress = 1
                 }
             }
-        }, failure: { _ in }, progress: { forLigand, fraction in
+        }, failure: { forLigand, _ in
             DispatchQueue.main.async {
                 if forLigand == self.ligand {
+                    self.ligandDownloadProgress.tintColor = Design.redSelenium
+                    self.ligandDownloadProgress.progress = 1
+                }
+            }
+        }, progress: { forLigand, fraction in
+            DispatchQueue.main.async {
+                if forLigand == self.ligand {
+                    self.ligandDownloadProgress.tintColor = Design.selenium
                     self.ligandDownloadProgress.progress = Float(fraction)
                 }
             }
@@ -47,6 +56,6 @@ class ProteinTableViewCell: UITableViewCell {
                     self.ligandImage.image = UIImage.init(data: data)
                 }
             }
-        }, failure: { _ in }, progress: { _, _ in })
+        }, failure: { _, _ in }, progress: { _, _ in })
     }
 }

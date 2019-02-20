@@ -62,26 +62,36 @@ class ProteinListViewController: UIViewController, DismissibleViewController, UI
             if cell.ligandDownloadProgress.progress < 1 {
                 let alert = SwiftyProteinsAlert.init(contents: [.bigTitle(NSLocalizedString("Error", comment: "")), .content(NSLocalizedString("Required file not found", comment: ""))], actions: [.default("OK", { })])
                 
-                alert.present(in: self.view)
+                return alert.present(in: self.view)
             }
             self.manager.proteinFile(ligand: cell.ligand, success: { ligand, data in
-                if let content = String.init(data: data, encoding: String.Encoding.utf8), content.count > 0 {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProteinViewController") as! ProteinViewController
-                    
-                    vc.modalPresentationStyle = .overCurrentContext
-                    vc.content = content
-                    vc.ligand = ligand
-                    LoginViewController.shared.proteinVC = vc
-                    LoginViewController.shared.sceneView.pause(nil)
-                    self.hideElements()
-                    self.present(vc, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    if let content = String.init(data: data, encoding: String.Encoding.utf8), content.count > 0 {
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProteinViewController") as! ProteinViewController
+                        
+                        vc.modalPresentationStyle = .overCurrentContext
+                        vc.content = content
+                        vc.ligand = ligand
+                        LoginViewController.shared.proteinVC = vc
+                        LoginViewController.shared.sceneView.pause(nil)
+                        self.hideElements()
+                        self.present(vc, animated: true, completion: nil)
+                    }
+                    else {
+                        let alert = SwiftyProteinsAlert.init(contents: [.bigTitle(NSLocalizedString("Error", comment: "")), .content(NSLocalizedString("File empty", comment: ""))], actions: [.default("OK", { })])
+                        
+                        alert.present(in: self.view)
+                    }
                 }
-                else {
-                    let alert = SwiftyProteinsAlert.init(contents: [.bigTitle(NSLocalizedString("Error", comment: "")), .content(NSLocalizedString("File empty", comment: ""))], actions: [.default("OK", { })])
+            }, failure: { ligand, error in
+                DispatchQueue.main.async {
+                    let alert = SwiftyProteinsAlert.init(contents: [.bigTitle(NSLocalizedString("Error", comment: "")),
+                                                                    .content(error.localizedDescription)],
+                                                         actions: [.destructive("OK", { })])
                     
                     alert.present(in: self.view)
                 }
-            }, failure: { _ in }, progress: { _, _ in })
+            }, progress: { _, _ in })
         }
     }
     

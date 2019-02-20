@@ -12,7 +12,7 @@ import UIKit
 class ProteinDataManager: NSObject {
     
     typealias SuccessClosure = (String, Data) -> ()
-    typealias FailureClosure = (Error) -> ()
+    typealias FailureClosure = (String, Error) -> ()
     typealias ProgressClosure = (String, CGFloat) -> ()
     
     class func getProteinImage(ligand: String) -> URL {
@@ -85,7 +85,7 @@ class FileImageSession: NSObject {
         super.init()
         self.task = URLSession.shared.downloadTask(with: ProteinDataManager.getProteinImage(ligand: ligand), completionHandler: { /*[unowned self]*/ url, _, error in
             if let error = error {
-                return self.failure(error)
+                return self.failure(self.ligand, error)
             }
             if let url = url {
                 do {
@@ -97,7 +97,7 @@ class FileImageSession: NSObject {
                     ProteinDataManager.proteinImages[ligand] = data
                     return self.success(self.ligand, data)
                 }
-                catch { return self.failure(error) }
+                catch { return self.failure(self.ligand, error) }
             }
             ProteinDataManager.proteinImageSessions[self.ligand] = nil
         })
@@ -133,7 +133,7 @@ class FileSession: NSObject {
         super.init()
         self.task = URLSession.shared.downloadTask(with: ProteinDataManager.getProteinFile(ligand: ligand), completionHandler: { /*[unowned self]*/ url, _, error in
             if let error = error {
-                return self.failure(error)
+                return self.failure(self.ligand, error)
             }
             if let url = url {
                 do {
@@ -145,7 +145,7 @@ class FileSession: NSObject {
                     ProteinDataManager.proteinFiles[ligand] = data
                     return self.success(self.ligand, data)
                 }
-                catch { return self.failure(error) }
+                catch { return self.failure(self.ligand, error) }
             }
             ProteinDataManager.proteinFileSessions[self.ligand] = nil
         })

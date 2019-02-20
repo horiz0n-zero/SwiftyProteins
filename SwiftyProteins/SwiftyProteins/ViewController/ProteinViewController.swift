@@ -73,7 +73,9 @@ class ProteinViewController: UIViewController, DismissibleViewController {
         
         present(shareViewController, animated: true, completion: nil)
         if let pop = shareViewController.popoverPresentationController {
-            pop.sourceView = self.view
+            pop.sourceView = self.bottomButtons.first!
+            pop.sourceRect = self.bottomButtons.first!.bounds
+            pop.permittedArrowDirections = .down
         }
     }
     

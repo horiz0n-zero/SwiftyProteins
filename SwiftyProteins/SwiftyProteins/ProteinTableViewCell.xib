@@ -39,7 +39,7 @@
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="42"/>
                         </variation>
                     </label>
-                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Uxw-ZB-iAG">
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uxw-ZB-iAG">
                         <rect key="frame" x="16" y="213" width="331" height="2"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2" id="3gm-67-wUM"/>
