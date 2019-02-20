@@ -111,13 +111,28 @@ class LoginViewController: UIViewController {
         })
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.receiveOrientationChange(notification:)), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
         self.proteinsImageVerticalConstraint.constant = -self.view.bounds.height / 4
         UIView.animate(withDuration: 1.25, delay: 0, options: [.curveEaseOut], animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
+    
+    @objc func receiveOrientationChange(notification: Notification) {
+        self.proteinsImageVerticalConstraint.constant = -self.view.bounds.height / 4
+        UIView.animate(withDuration: 1.25, delay: 0, options: [.curveEaseOut], animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
 }
 
 protocol DismissibleViewController: AnyObject { func dismiss() }
