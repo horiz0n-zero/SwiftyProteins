@@ -36,4 +36,7 @@
 
 > Vous doit pouvoir jouer (zoom, rotation...) avec le ligand dans Scène Kit
 
-
+<div align="center">
+	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/1.png" width="30%" />
+	<img src="https://github.com/horiz0n-zero/SwiftyProteins/blob/master/readme_resources/2.png" width="30%" /> 
+</div>
